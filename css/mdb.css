@@ -12430,11 +12430,11 @@ a.pswp__share--download:hover {
 .band-lp .contact-section .md-form .form-control {
   color: #fff; }
 
-.cafe-lp .intro {
-  background-image: url("../img/5.jpg"); }
+/*.cafe-lp .intro {
+  background-image: url("../img/5.jpg"); }*/
 
-.cafe-lp .photo-1 {
-  background-image: url("../img/78e7e3_4fb0cc53ed464a4eb830af125643983c-mv2.jpeg"); }
+/*.cafe-lp .photo-1 {
+  background-image: url("../img/78e7e3_4fb0cc53ed464a4eb830af125643983c-mv2.jpeg"); }*/
 
 
 .cafe-lp .navbar {
@@ -12546,7 +12546,7 @@ a.pswp__share--download:hover {
   background-color: #acacac !important; }
 
 .hostel-lp .intro {
-  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img (26).jpg"); }
+  background-image: url("../img/wmcommunity.jpg"); }
 
 @media (max-width: 768px) {
   .hostel-lp.light-blue-skin.intro-page .navbar:not(.top-nav-collapse) {

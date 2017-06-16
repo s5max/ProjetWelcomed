@@ -117,7 +117,7 @@ if(!empty($_POST)){
 			
 			<select name="profession" id="profession" class="form-control">
 			<?php if(isset($empty)){ ?>
-				<option value="0">--- Choisir votre proffession ---</option>
+				<option value="0">--- Choisir votre profession ---</option>
 				<?php foreach($profession as $value){ echo '<option value="'.$value['id'].'">'.$value['speciality'].'</option>';} ?>
 			<?php }else{ echo '<option value="'.$post['profession'].'" selected >'.$post['profession_name'].'</option>';} ?>
 		</select>

@@ -2,9 +2,31 @@
 <?php
 session_name('wmd');session_start();
 
-$m = '/welcome/modal/';
+$m = '/Home/welcome/modal/';
 
 require('include/connect.php');
+
+
+/*INSERTION DES IMAGES DEPUIS LA BDD*/
+    $backOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 1');
+    $backTwo = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 2');
+    $picOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 3');
+    $picTwo = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 4');
+    $picThree = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 5');
+    $picFour = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 6');
+    $picFive = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 7');
+    $picSix = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 8');
+    $picWC = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 9');
+
+    if($backOne->execute()){$imgOne = $backOne->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($backTwo->execute()){$imgTwo = $backTwo->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picOne->execute()){$minOne = $picOne->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picTwo->execute()){$minTwo = $picTwo->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picThree->execute()){$minThree = $picThree->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picFour->execute()){$minFour = $picFour->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picFive->execute()){$minFive = $picFive->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picSix->execute()){$minSix = $picSix->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picWC->execute()){$minWC = $picWC->fetch(PDO::FETCH_ASSOC);}else {die;}
 
 ?>
 
@@ -27,17 +49,6 @@ require('include/connect.php');
         <meta property="og:site_name" content="mdbootstrap.com">
 -->
         <!-- /Meta OG -->
-
-        <!-- Twitter Card -->
-<!--
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:description" content="Perfect for projects that have something in common with cafe's and restaurants." />
-        <meta name="twitter:title" content="Material Design Organic Cafe Landing Page" />
-        <meta name="twitter:site" content="@MDBootstrap" />
-        <meta name="twitter:image" content="https://mdbootstrap.com/img/Live/MDB/13.03/cafe-fb.jpg" />
-        <meta name="twitter:creator" content="@MDBootstrap" />
--->
-        <!-- /Twitter Card -->    
 
         <!-- Police Roboto -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
@@ -83,11 +94,6 @@ require('include/connect.php');
 				color: #ccc;
 				cursor: pointer;
 			}
-			
-			.lien{
-				color:#4fada7;
-				text-decoration:underline;
-			}
 		</style>
     
     	
@@ -108,7 +114,7 @@ require('include/connect.php');
                         <span class="navbar-toggler-icon"></span> 
                     </button>
 
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="./">
                         <strong><img src="img/logomin.png" class="welcologo"/></strong>
                     </a>
 
@@ -138,15 +144,17 @@ require('include/connect.php');
                         </ul>
 
                         <!--Social Icons-->
-                        <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-instagram"></i></a>
+                        <ul id="navrefresh" class="navbar-nav">
+                            <li>
+                                <?php if(!isset($_SESSION['user'])){?>
+                                    <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>
+                                    
+                                    <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>login.php" data-toggle="modal" data-target="#modal4all">Se connecter</a>
+                                    <?php }else{?>                                      
+                                        
+                                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
+                                    
+                                <?php }?>
                             </li>
                         </ul>
 
@@ -156,7 +164,7 @@ require('include/connect.php');
             <!--/Navbar-->
 
             <!--Mask-->
-            <div class="view intro" id="home">
+            <div class="view intro" id="home" style="background-image:url('<?php echo "img/".$imgOne['img_url']; ?>');">
                 <div class="hm-black-strong-1">
                     <div class="full-bg-img flex-center">
                         <div class="container">
@@ -179,9 +187,9 @@ require('include/connect.php');
                                     <?php }else{?>
                                     
                                     
-										<a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une Annonce</a>
+										<a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une Annonce</a>
 										                                    	
-										<a href="search.php" class="btn wmlogin" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	
+										<a href="search.php" class="btn wmregister" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	
                                     	
                                     	<a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
                                     
@@ -225,12 +233,6 @@ require('include/connect.php');
             <!--First container-->
             <div class="container">
 
-                <!--Section: Features v.4-->
-
-                <!--/Section: Features v.4-->
-
-                <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
-
                 <!--Section: Products-->
                 <section class="section" id="products">
 
@@ -251,7 +253,7 @@ require('include/connect.php');
 
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
-                                    <img src="img/pic-doc.jpg" class="img-fluid">
+                                    <img src="<?php echo "img/".$minOne['img_url']; ?>" class="img-fluid">
                                     <a href="page.php">
                                         <div class="mask"></div>
                                     </a>
@@ -281,7 +283,7 @@ require('include/connect.php');
 
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
-                                    <img src="img/pic-kiné.jpg" class="img-fluid">
+                                    <img src="<?php echo "img/".$minTwo['img_url']; ?>" class="img-fluid">
                                     <a href="#!">
                                         <div class="mask"></div>
                                     </a>
@@ -311,7 +313,7 @@ require('include/connect.php');
 
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
-                                    <img src="img/pic-nurse.jpg" class="img-fluid">
+                                    <img src="<?php echo "img/".$minThree['img_url']; ?>" class="img-fluid">
                                     <a href="#!">
                                         <div class="mask"></div>
                                     </a>
@@ -347,7 +349,7 @@ require('include/connect.php');
 
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
-                                    <img src="img/pic-ortho.jpg" class="img-fluid">
+                                    <img src="<?php echo "img/".$minFour['img_url']; ?>" class="img-fluid">
                                     <a href="#!">
                                         <div class="mask"></div>
                                     </a>
@@ -377,7 +379,7 @@ require('include/connect.php');
 
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
-                                    <img src="img/pic-pedi.jpg" class="img-fluid">
+                                    <img src="<?php echo "img/".$minFive['img_url']; ?>" class="img-fluid">
                                     <a href="#!">
                                         <div class="mask"></div>
                                     </a>
@@ -387,7 +389,7 @@ require('include/connect.php');
                                 <!--Card content-->
                                 <div class="card-block text-center">
                                     <!--Title-->
-                                    <h4 class="card-title"><strong>Podologue</strong></h4>
+                                    <h4 class="card-title"><strong>Podologues</strong></h4>
 
                                 </div>
                                 <!--/.Card content-->
@@ -407,7 +409,7 @@ require('include/connect.php');
 
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
-                                    <img src="img/pic-dentist.png" class="img-fluid">
+                                    <img src="<?php echo "img/".$minSix['img_url']; ?>" class="img-fluid">
                                     <a href="#!">
                                         <div class="mask"></div>
                                     </a>
@@ -441,7 +443,7 @@ require('include/connect.php');
             
            
           	<!--Streak-->
-            <div class="streak streak-photo streak-large view photo-1 hr-streak" id="about">
+            <div class="streak streak-photo streak-large view photo-1 hr-streak" id="about" style="background-image:url('<?php echo "img/".$imgTwo['img_url']; ?>');">
                 <div class="hm-black-strong-1">
                     <div class="mask flex-center">
                         <div class="container">
@@ -495,7 +497,7 @@ require('include/connect.php');
                         <div class="col-xl-5 offset-xl-1 col-lg-6 wow fadeIn" data-wow-delay="0.4s">
 
                             <!--Image-->
-                            <img src="img/wmcommunity.jpg" class="img-fluid" alt="My photo">
+                            <img src="<?php echo "img/".$minWC['img_url']; ?>" class="img-fluid" alt="My photo">
 
                         </div>
                         <!--/Column column-->
@@ -526,12 +528,12 @@ require('include/connect.php');
                             <div class="testimonial">
                                 <!--Avatar-->
                                 <div class="avatar">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle img-fluid">
+                                    <img src="img/profile-man.jpg" class="rounded-circle img-fluid">
                                 </div>
 
                                 <!--Content-->
-                                <h4>Anna Deynah</h4>
-                                <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab.</p>
+                                <h4>Antoine</h4>
+                                <p><i class="fa fa-quote-left"></i> Pourquoi passer par différentes plateformes pour chercher ou diffuser ces informations si tout est disponible ici</p>
                             </div>
                         </div>
                         <!--/First column-->
@@ -541,12 +543,12 @@ require('include/connect.php');
                             <div class="testimonial">
                                 <!--Avatar-->
                                 <div class="avatar">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" class="rounded-circle img-fluid">
+                                    <img src="img/profile-woman.jpg" class="rounded-circle img-fluid">
                                 </div>
 
                                 <!--Content-->
-                                <h4>John Doe</h4>
-                                <p><i class="fa fa-quote-left"></i> Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>
+                                <h4>Louise</h4>
+                                <p><i class="fa fa-quote-left"></i> Louer un appart' et une voiture, un mois en Martinique, ça peut revenir assez cher! Bénéficier des réductions de la Welcomed Community c'est top !</p>
                             </div>
                         </div>
                         <!--/Second column-->
@@ -556,11 +558,11 @@ require('include/connect.php');
                             <div class="testimonial">
                                 <!--Avatar-->
                                 <div class="avatar">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(19).jpg" class="rounded-circle img-fluid">
+                                    <img src="img/profile-woman.jpg" class="rounded-circle img-fluid">
                                 </div>
                                 <!--Content-->
-                                <h4>Maria Kate</h4>
-                                <p><i class="fa fa-quote-left"></i> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
+                                <h4>Charlotte</h4>
+                                <p><i class="fa fa-quote-left"></i> J'ai posté une offre de remplacement sur les réseaux sociaux mais je devais régulièrement "liker" le post pour qu'il soit bien vu... Avec Welcomed c'est plus simple.</p>
 
                             </div>
                         </div>
