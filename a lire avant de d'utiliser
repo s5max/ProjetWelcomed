@@ -1,8 +1,11 @@
 Déclarer la variable $m pour spécifier le chemin des modals (pour que les chemins soient retrouvés quand on change de serveur)   
 
 
+peupler $_SESSION dans ad2
+
 Envoyer les données récoltées depuis ad1 en bdd
-Problème sur l'envoi en base de donnée
+
+S'assurer que session_start soit présent sur les pages où il faut
 
 Faire une animation pour 'Vous devez remplir les champs obligatoires(*)'.Pour qu'on ait pas l'impression que c'est le même texte qui est resté affiché alors qu'il a été rafraichi
 

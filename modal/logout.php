@@ -35,6 +35,7 @@ session_destroy();
 	</div>
 <script>
 
+	$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navrefresh').html(o);});
 	$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
 
 </script>	

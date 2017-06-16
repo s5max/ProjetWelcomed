@@ -15,16 +15,19 @@
 					<h2 class="font-up white-text mb-2 hwelcomed">Une expérience libérale sous le Soleil de Martinique</h2>
 
 					<?php if(!isset($_SESSION['user'])){?>
-					<a class="btn wmregister mod" data-offset="100" data-toggle="modal" data-url="modal/subscribe.php" data-target="#modal4all">S'inscrire</a>
-
-					<a class="btn wmlogin mod" data-offset="100" data-toggle="modal" data-url="modal/login.php" data-target="#modal4all">Se connecter</a>
-					<?php }else{?>
-					
-						<a class="btn wmlogin mod" data-offset="100" data-toggle="modal" data-url="modal/ad1.php" data-target="#modal4all">Publier une Annonce</a>
-						<a href="search.php" class="btn wmlogin" data-offset="100" >Voir les offres</a>
-						<a class="btn wmlogin mod" data-offset="100" data-toggle="modal" data-url="modal/logout.php" data-target="#modal4all">Se déconnecter</a>
-
-					<?php }?>
+                        <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>
+						
+                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>login.php" data-toggle="modal" data-target="#modal4all">Se connecter</a>
+                        <?php }else{?>
+                        
+                        
+							<a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une Annonce</a>
+							                                    	
+							<a href="search.php" class="btn wmregister" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	
+                        	
+                        	<a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
+                        
+                        <?php }?>
 
 				</div>
 			</div>

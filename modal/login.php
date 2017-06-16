@@ -41,8 +41,8 @@ if(!empty($_POST)){
 				$_SESSION['user']['firstname'] = $user['firstname'];
 				$_SESSION['user']['lastname'] = $user['lastname'];
 				$_SESSION['user']['email'] = $user['email'];
-				$_SESSION['user']['wm_role'] = $user['wm_role']	
-				
+				$_SESSION['user']['wm_role'] = $user['wm_role'];
+
 				$done = '<h4 id="state" data-state="on">Vous êtes maintenant connecté à votre compte!</h4><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>';
 
 				//                    echo '<p>Vous êtes maintenant connecté à votre compte!</p><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>
@@ -150,9 +150,9 @@ if(!empty($_POST)){
 				
 				$('#ajax').html(o);
 				if($('#state').data('state') === 'on'){
+					$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navrefresh').html(o);});
 					$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
 				}
-
 			});
 
 		}
