@@ -115,6 +115,7 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 			
 			$insert = $bdd->prepare('INSERT INTO ad(user_id,profession_id,offer_id,city_id,detail)VALUES(:user_id,:profession_id,:offer_id,:city_id,:detail)');
 
+			$insert->bindValue(':option_id',$_SESSION['post']['option']);
 			$insert->bindValue(':user_id',$_SESSION['post']['info']['user_id']);
 			$insert->bindValue(':profession_id',$_SESSION['post']['info']['profession']);
 			$insert->bindValue(':offer_id',$_SESSION['post']['info']['type']);
