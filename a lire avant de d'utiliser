@@ -1,16 +1,17 @@
-Déclarer la variable $m pour spécifier le chemin des modals (pour que les chemins soient retrouvés quand on change de serveur)   
+Déclarer la variable $m pour spécifier le chemin des modals (pour que les chemins soient retrouvés quand on change de serveur)
+index.php refresh/home.php ajax/search_result.php
+
+chemin $r dans header
+
+Changer le chemein dans la variable search dans la page search.php
 
 
-peupler $_SESSION dans ad2
-
-Envoyer les données récoltées depuis ad1 en bdd
-
-S'assurer que session_start soit présent sur les pages où il faut
+Centrer les ancres de la navbar
 
 Faire une animation pour 'Vous devez remplir les champs obligatoires(*)'.Pour qu'on ait pas l'impression que c'est le même texte qui est resté affiché alors qu'il a été rafraichi
 
 
 Quand les offres payantes seront disponibles, renseigner les attributs data-url des liens pour y accéder
 Ajouter une colonne pour identifier l'offre choisi
-Ajouter $user['option'] pour spécifier l'offre choisi
+Ajouter $_SESSION['post']['option'] pour spécifier l'offre choisi
 

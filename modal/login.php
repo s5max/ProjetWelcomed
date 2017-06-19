@@ -152,6 +152,7 @@ if(!empty($_POST)){
 				if($('#state').data('state') === 'on'){
 					$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navrefresh').html(o);});
 					$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
+					$.ajax({type:'post',url:'/git/ProjetWelcomed/refresh/ad.php'}).done(function(o){$('#ad_action').html(o);console.log(o);});
 				}
 			});
 
