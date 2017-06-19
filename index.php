@@ -2,7 +2,7 @@
 <?php
 session_name('wmd');session_start();
 
-$m = '/Home/welcome/modal/';
+$m = '/Home/ProjetWelcomed/modal/';
 
 require('include/connect.php');
 

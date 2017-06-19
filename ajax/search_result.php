@@ -2,7 +2,7 @@
 
 	session_name('wmd');session_start();
 
-	$m = '/git/ProjetWelcomed/modal/';
+	$m = 'Home/ProjetWelcomed/modal/';
 
 	if(!empty($_POST)){
 		

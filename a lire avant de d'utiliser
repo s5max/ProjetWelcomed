@@ -3,7 +3,7 @@ Sender_id et receiver_id n'ont pas été ajouté en base de donnée
 retirer la condition sur state dans login.php 
 
 Déclarer la variable $m pour spécifier le chemin des modals (pour que les chemins soient retrouvés quand on change de serveur)
-index.php refresh/home.php ajax/search_result.php
+index.php refresh/home.php refresh/navbar.php ajax/search_result.php
 
 chemin $r dans header, login
 
