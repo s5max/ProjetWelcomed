@@ -245,6 +245,7 @@
 			url: url,
 			success:function(o){
 				$('#ajax').html(o);
+				
 			}
 		});
 		

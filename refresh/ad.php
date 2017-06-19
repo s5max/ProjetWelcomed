@@ -11,7 +11,7 @@ if(!empty($_POST)){
 
 if(!isset($_SESSION['user'])){ ?>
 							
-		<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-receiver="<?= $post['receiver_id'] ?>" data-toggle="modal" data-target="#modal-contact" disabled>Contacter l'annonceur</a>
+		<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-receiver="<?= if(isset($post)){$post['receiver_id'];} ?>" data-toggle="modal" data-target="#modal-contact" disabled>Contacter l'annonceur</a>
 
 	<div id="no-log">
 
@@ -25,7 +25,7 @@ if(!isset($_SESSION['user'])){ ?>
 }
 else{
 ?>
-	<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-url="<?= $m ?>contact_advertiser.php" data-receiver="<?= $post['receiver_id'] ?>" data-toggle="modal" data-target="#modal4all">Contacter l'annonceur</a>
+	<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-url="<?= $m ?>contact_advertiser.php" data-receiver="<?= if(isset($post)){$post['receiver_id'];} ?>" data-toggle="modal" data-target="#modal4all">Contacter l'annonceur</a>
 <?php } ?>
 
 

@@ -135,12 +135,12 @@ if(!empty($_POST)){
 		else{
 			
 			url = 'modal/'+this.id+'.php';
-			
+			receiver = $('#contact').getAttribute('data-receiver');
 			$.ajax({
 				  type: 'post',
 				  url: url,
 				  data: { 
-
+					  receiver_id	: receiver,
 					  email			: $('#email').val(),
 					  password		: $('#password').val(),
 

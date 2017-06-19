@@ -25,7 +25,7 @@ if(!empty($_POST)){
 	
 	if(count($error) === 0){
 		
-		$insert = $bdd->prepare('INSERT INTO contact_advertiser(sender_id,receiver_id,object,message)VALUES(:sender_id,:receiver_id,:object,:message)');
+		$insert = $bdd->prepare('INSERT INTO ad_message(sender_id,receiver_id,object,message)VALUES(:sender_id,:receiver_id,:object,:message)');
 		
 		$insert->bindValue(':sender_id',$post['sender_id']);
 		$insert->bindValue(':receiver_id',$post['receiver_id']);
