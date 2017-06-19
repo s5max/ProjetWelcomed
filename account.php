@@ -1,5 +1,4 @@
 <?php
-session_name('wmd');session_start();
     require('include/connect.php');
     require('include/header.php');
 
@@ -685,7 +684,7 @@ session_name('wmd');session_start();
                             <h1 class="title normaltitle">Mon Compte</h1>
                                 <div class="col-sm-12">
                                     <div class="row wow fadeIn" data-wow-delay="0.4s">
-                                        <div class="col-sm-6">
+                                        <div class="col-md-6">
                                             <ol class="breadcrumb">
                                                 <li class="active">
                                                     <h4>Utilisateur :</h4>
@@ -714,7 +713,7 @@ session_name('wmd');session_start();
                                             </ol>
                                             <h2><?php echo $user['email']; ?></h2>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-md-6">
                                             <ol class="breadcrumb">
                                                 <li class="active">
                                                     <h4>Adresse :</h4>
@@ -737,7 +736,29 @@ session_name('wmd');session_start();
                                         </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
+                        <div class="row">
+                            <h1 class="title normaltitle">Mes offres</h1>
+                                <div class="col-sm-12">
+                                    <div class="row wow fadeIn" data-wow-delay="0.4s">
+                                        <div class="col-md-6">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
+                        <div class="row">
+                            <h1 class="title normaltitle">Mes messages</h1>
+                                <div class="col-sm-12">
+                                    <div class="row wow fadeIn" data-wow-delay="0.4s">
+                                        <div class="col-md-6">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                     <!--/Section: About-->
 

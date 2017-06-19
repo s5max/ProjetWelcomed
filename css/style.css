@@ -65,7 +65,9 @@ select {
   color: #fff;}
 .normalcontact {
   text-align: left !important;}
-
+.whitetable {
+  color: #fff;
+}
 /*----------------------------------
     FORMS BOOTSTRAP 3.3.7
 ------------------------------------*/
