@@ -1,6 +1,5 @@
 <?php
     require('../include/connect.php');
-    require('../include/header.php');
     require('include/log.php');
 
     $select = $bdd->prepare('SELECT *, a.id AS id_ad FROM ad AS a JOIN (user AS u, profession AS p, offer AS o, city AS c) ON (u.id=a.user_id AND p.id=a.profession_id AND o.id=a.offer_id AND c.id=a.city_id)');

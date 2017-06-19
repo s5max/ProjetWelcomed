@@ -1,6 +1,5 @@
 <?php
     require('../include/connect.php');
-    require('../include/header.php');
     require('include/log.php');
 
     $select = $bdd->prepare('SELECT * FROM pictures ORDER BY img_id ASC');

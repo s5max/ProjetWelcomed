@@ -1,6 +1,5 @@
 <?php
     require('../include/connect.php');
-    require('../include/header.php');
     require('include/log.php');
 
     $select = $bdd->prepare('SELECT * FROM user ORDER BY id ASC');

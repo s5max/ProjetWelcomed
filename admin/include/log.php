@@ -1,5 +1,7 @@
 <?php
-
+    session_name('wmd');
+    session_start();
+    
     if(isset($_SESSION['user']['id']) && ($_SESSION['user']['wm_role'] == 'admin')){
 
         $idUser = (int) $_SESSION['user']['id'];
