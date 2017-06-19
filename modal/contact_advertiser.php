@@ -52,8 +52,8 @@ if(!empty($_POST)){
 <!--Body-->
 <div class="modal-body" id="modal-contact-content">
 <!--                            <div class="md-form">-->
-		<input type="hidden" id="sender_id" name="sender_id" class="form-control">
-		<input type="hidden" id="receiver_id" name="receiver_id" class="form-control">
+		<input type="hidden" id="sender_id" name="sender_id" class="form-control" value="<?= $_SESSION['user']['id'] ?>">
+		<input type="hidden" id="receiver_id" name="receiver_id" class="form-control" value="<?= $post['receiver_id'] ?>">
 <!--                            <label for="name">Nom</label>-->
 <!--                            </div>-->
 

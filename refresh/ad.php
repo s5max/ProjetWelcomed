@@ -4,10 +4,14 @@ session_name('wmd');session_start();
 
 $m = '/git/ProjetWelcomed/modal/';
 
+if(!empty($_POST)){
+	
+	$post = array_map('trim',array_map('strip_tags',$_POST));
+}
 
 if(!isset($_SESSION['user'])){ ?>
 							
-		<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-receiver="<?=$v['user_id'];?>" data-toggle="modal" data-target="#modal-contact" disabled>Contacter l'annonceur</a>
+		<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-receiver="<?= $post['receiver_id'] ?>" data-toggle="modal" data-target="#modal-contact" disabled>Contacter l'annonceur</a>
 
 	<div id="no-log">
 
@@ -21,7 +25,7 @@ if(!isset($_SESSION['user'])){ ?>
 }
 else{
 ?>
-	<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-url="<?= $m ?>contact_advertiser.php" data-receiver="<?=$_SESSION['user']['id']?>" data-toggle="modal" data-target="#modal4all">Contacter l'annonceur</a>
+	<a id="contact" class="btn btn-lg btn-rounded btn-primary waves-effect waves-light btn-contact mod" data-url="<?= $m ?>contact_advertiser.php" data-receiver="<?= $post['receiver_id'] ?>" data-toggle="modal" data-target="#modal4all">Contacter l'annonceur</a>
 <?php } ?>
 
 
