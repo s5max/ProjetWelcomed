@@ -1,4 +1,5 @@
 <!--Footer-->
+        <footer class="page-footer footer-tiles center-on-small-only pt-4 normalfooter" id="footer">
 
             <!--Footer Links-->
             <div class="container mb-4">
