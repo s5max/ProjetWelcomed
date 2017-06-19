@@ -3,6 +3,8 @@
 session_name('wmd');session_start();
 require('../include/connect.php');
 
+$r = 'http://localhost/git/ProjetWelcomed/';
+
 $select = $bdd->prepare('SELECT * FROM profession');
 
 	if($select->execute()){
@@ -20,47 +22,49 @@ if(!empty($_POST)){
 	$post = array_map('trim',array_map('strip_tags',$_POST));
 	$error = [];
 	
+	if(isset($post['email'])){
 	
-	if(!filter_var($post['email'],FILTER_VALIDATE_EMAIL)){
-            $error[] = '<p class="error">L\'adresse email n\'est pas dans un format valide';
-        }
-        
-	if(count($error) === 0){
-
-		$select = $bdd->prepare('SELECT * FROM user WHERE email = :email LIMIT 1');
-
-		$select->bindValue(':email',$post['email']);
-
-		if($select->execute()){
-
-			$user = $select->fetch(PDO::FETCH_ASSOC);
-
-			if(password_verify($post['password'],$user['password'])){
-				unset($user['password']);
-				$_SESSION['user']['id'] = $user['id'];
-				$_SESSION['user']['firstname'] = $user['firstname'];
-				$_SESSION['user']['lastname'] = $user['lastname'];
-				$_SESSION['user']['email'] = $user['email'];
-				$_SESSION['user']['wm_role'] = $user['wm_role'];
-
-				$done = '<h4 id="state" data-state="on">Vous êtes maintenant connecté à votre compte!</h4><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>';
-
-				//                    echo '<p>Vous êtes maintenant connecté à votre compte!</p><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>
-				//					<script>$(\'#no-log\').css(\'display\',\'none\');$(\'#contact\').removeAttr(\'disabled\');</script>';
-
-			}
-			else{
-
-				$error[] = '<p class="error">Votre identifiant et/ou votre mot de passe sont incorrectes</p>';
-
+		if(!filter_var($post['email'],FILTER_VALIDATE_EMAIL)){
+				$error[] = '<p class="error">L\'adresse email n\'est pas dans un format valide';
 			}
 
-		}else{
+		if(count($error) === 0){
 
-				$error[] = '<p class="error">Votre identifiant et/ou votre mot de passe sont incorrectes</p>';
+			$select = $bdd->prepare('SELECT * FROM user WHERE email = :email LIMIT 1');
+
+			$select->bindValue(':email',$post['email']);
+
+			if($select->execute()){
+
+				$user = $select->fetch(PDO::FETCH_ASSOC);
+
+				if(password_verify($post['password'],$user['password'])){
+					unset($user['password']);
+					$_SESSION['user']['id'] = $user['id'];
+					$_SESSION['user']['firstname'] = $user['firstname'];
+					$_SESSION['user']['lastname'] = $user['lastname'];
+					$_SESSION['user']['email'] = $user['email'];
+					$_SESSION['user']['wm_role'] = $user['wm_role'];
+
+					$done = '<h4 id="state" data-state="on">Vous êtes maintenant connecté à votre compte!</h4><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>';
+
+					//                    echo '<p>Vous êtes maintenant connecté à votre compte!</p><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>
+					//					<script>$(\'#no-log\').css(\'display\',\'none\');$(\'#contact\').removeAttr(\'disabled\');</script>';
+
+				}
+				else{
+
+					$error[] = '<p class="error">Votre identifiant et/ou votre mot de passe sont incorrectes</p>';
+
+				}
+
+			}else{
+
+					$error[] = '<p class="error">Votre identifiant et/ou votre mot de passe sont incorrectes</p>';
+
+			}
 
 		}
-
 	}
 	
 }
@@ -115,6 +119,8 @@ if(!empty($_POST)){
     
                    
 <script>
+	
+	
 	var b = [];
 	
 	function notEmpty(a){
@@ -135,12 +141,19 @@ if(!empty($_POST)){
 		else{
 			
 			url = 'modal/'+this.id+'.php';
-			receiver = $('#contact').getAttribute('data-receiver');
+			loc = '<?= $r ?>'+'search.php';
+			if(window.location.href === loc){
+				receiver = $('#contact').data('receiver');
+			}
+			else{
+				receiver = '';
+			}
+			
 			$.ajax({
 				  type: 'post',
 				  url: url,
 				  data: { 
-					  receiver_id	: receiver,
+					  //receiver_id	: receiver,
 					  email			: $('#email').val(),
 					  password		: $('#password').val(),
 
@@ -152,7 +165,7 @@ if(!empty($_POST)){
 				
 				$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navrefresh').html(o);console.log(o)});
 				$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
-				$.ajax({type:'post',url:'/git/ProjetWelcomed/refresh/ad.php'}).done(function(o){$('#ad_action').html(o);});
+				$.ajax({type:'post',url:'/git/ProjetWelcomed/refresh/ad.php',data: {receiver_id	: receiver}}).done(function(o){$('#ad_action').html(o);});
 				
 			});
 

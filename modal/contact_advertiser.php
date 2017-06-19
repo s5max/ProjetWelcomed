@@ -8,36 +8,45 @@ $empty = true;
 
 if(!empty($_POST)){
 	
-	$empty = null;
-	
 	$post = array_map('trim',array_map('strip_tags',$_POST));
 	$error = [];
 	
-	if(strlen($post['object'])< 3 || strlen($post['object'])> 64){
-	
-		$error['object'] = '<p class="error">Ce champ doit contenir entre 3 et 64 caractères</p>'; 
-	}
-	
-	if(strlen($post['message'])< 20 || strlen($post['message'])>250){
-	
-		$error['message'] = '<p class="error">Ce champ doit contenir entre 20 et 250 caractères</p>'; 
-	}
-	
-	if(count($error) === 0){
+	if(isset($post['object'])){
 		
-		$insert = $bdd->prepare('INSERT INTO ad_message(sender_id,receiver_id,object,message)VALUES(:sender_id,:receiver_id,:object,:message)');
+		$empty = null;
 		
-		$insert->bindValue(':sender_id',$post['sender_id']);
-		$insert->bindValue(':receiver_id',$post['receiver_id']);
-		$insert->bindValue(':object',$post['object']);
-		$insert->bindValue(':message',$post['message']);
-		
-		if($insert->execute()){
-			$done ='<h4 id="sate" data-state="on">Votre message a bien été envoyé à l\'annonceur!</h4><p>Vous recevrez une réponse  dans la messagerie de votre espace Welcomed</p>';
+		if(strlen($post['object'])< 3 || strlen($post['object'])> 64){
+
+			$error['object'] = '<p class="error">Ce champ doit contenir entre 3 et 64 caractères</p>'; 
 		}
-		
+
+		if(strlen($post['message'])< 20 || strlen($post['message'])>250){
+
+			$error['message'] = '<p class="error">Ce champ doit contenir entre 20 et 250 caractères</p>'; 
+		}
+
+		if(count($error) === 0){
+
+			$insert = $bdd->prepare('INSERT INTO ad_message(sender_id,receiver_id,object,message)VALUES(:sender_id,:receiver_id,:object,:message)');
+
+			$insert->bindValue(':sender_id',$post['sender_id']);
+			$insert->bindValue(':receiver_id',$post['receiver_id']);
+			$insert->bindValue(':object',$post['object']);
+			$insert->bindValue(':message',$post['message']);
+
+			if($insert->execute()){
+				$done ='<h4 id="sate" data-state="on">Votre message a bien été envoyé à l\'annonceur!</h4><p>Vous recevrez une réponse  dans la messagerie de votre espace Welcomed</p>';
+			}
+
+		}
 	}
-	
+	$_SESSION['user']['ad'] = $post['receiver'];
+	var_dump($post);
+?>
+	<input type="hidden" id="sender_id" name="sender_id" class="form-control" value="<?= $_SESSION['user']['id'] ?>">
+		<input type="hidden" id="receiver_id" name="receiver_id" class="form-control" value="<?= $post['receiver'] ?>">
+
+<?php	
 }
 
 ?>
@@ -53,7 +62,7 @@ if(!empty($_POST)){
 <div class="modal-body" id="modal-contact-content">
 <!--                            <div class="md-form">-->
 		<input type="hidden" id="sender_id" name="sender_id" class="form-control" value="<?= $_SESSION['user']['id'] ?>">
-		<input type="hidden" id="receiver_id" name="receiver_id" class="form-control" value="<?= $post['receiver_id'] ?>">
+		<input type="hidden" id="receiver_id" name="receiver_id" class="form-control" value="<?= $_SESSION['user']['ad'] ?>">
 <!--                            <label for="name">Nom</label>-->
 <!--                            </div>-->
 

@@ -239,10 +239,12 @@
 		e.preventDefault();
 		
 		url = this.getAttribute('data-url');
+		receiver = this.getAttribute('data-receiver');
 		
 		$.ajax({
 			type: 'post',
 			url: url,
+			data:{ receiver : receiver},
 			success:function(o){
 				$('#ajax').html(o);
 				
