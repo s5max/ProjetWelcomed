@@ -89,12 +89,14 @@
                                 <a class="nav-link" href="<?= $r ?>contact.php" data-offset="100">Contactez-nous</a>
                             </li>
 -->
+                            <?php if(isset($_SESSION['user'])){?>
                             <li class="nav-item">
                                 <a class="nav-link mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une annonce</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= $r ?>account.php" data-offset="100">Mon Compte</a>
                             </li>
+                            <?php } ?>
                             <li class="nav-item">
                                 <a class="nav-link wcomlink" href="#contact" data-target="#modal-contact">Welcomed Community</a>
                             </li>

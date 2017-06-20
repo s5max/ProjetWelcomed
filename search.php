@@ -1,7 +1,7 @@
 <?php
 
 require('include/connect.php');
-require('include/header.php');
+require('include/xheader.php');
 
 $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
 
