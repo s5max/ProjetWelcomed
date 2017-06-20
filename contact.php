@@ -1,7 +1,7 @@
 <?php
 
     require('include/connect.php');
-    require('include/header.php');
+    require('include/xheader.php');
     $contact =[]; // Contiendra les données du formulaire nettoyées
     $errors =[]; // Contiendra les éventuelles erreurs
     $display = true;
@@ -59,58 +59,9 @@
     }
 
 ?>
-<!DOCTYPE html>
-<html lang="en" class="full-height">
 
-    <head>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-        <title>WelcoMed</title>
-
-        <!-- Meta OG -->
-        <meta property="og:title" content="Material Design Organic Cafe Landing Page">
-        <meta property="og:description" content="Perfect for projects that have something in common with cafe's and restaurants.">
-        <meta property="og:image" content="https://mdbootstrap.com/img/Live/MDB/13.03/cafe-fb.jpg">
-        <meta property="og:url" content="https://mdbootstrap.com/live/_MDB/templates/Landing-Page/organic-cafe-landing-page.html">
-        <meta property="og:site_name" content="mdbootstrap.com">
-        <!-- /Meta OG -->
-
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:description" content="Perfect for projects that have something in common with cafe's and restaurants." />
-        <meta name="twitter:title" content="Material Design Organic Cafe Landing Page" />
-        <meta name="twitter:site" content="@MDBootstrap" />
-        <meta name="twitter:image" content="https://mdbootstrap.com/img/Live/MDB/13.03/cafe-fb.jpg" />
-        <meta name="twitter:creator" content="@MDBootstrap" />
-        <!-- /Twitter Card -->    
-
-        <!-- Police Roboto -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-
-        <!-- Bootstrap core CSS -->
-        <!-- <link href="css/bootstrap337.css" rel="stylesheet"> -->
-        <link href='css/bootstrap.css' rel='stylesheet' />
-        <link href="css/bootstrap4.min.css" rel="stylesheet"/>
-        <link href='css/rotating.css' rel='stylesheet' />
-        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
-
-        <!-- Material Design Bootstrap -->
-        <link href="css/mdb.css" rel="stylesheet">
-
-        <!-- Your custom styles (optional) -->
-        <link href="css/style.css" rel="stylesheet">
-
-    </head>
-
-    <body class="cyan-skin intro-page cafe-lp">
-
-        <?php include 'include/head.php'; ?>
+    
 
         <!--Main content-->
         <main class=" normalsection">

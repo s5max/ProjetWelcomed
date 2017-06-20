@@ -15,7 +15,6 @@ $empty = true;
 
 if(!empty($_POST)){
 	
-	$empty = null;
 	
 	$post = array_map('trim',array_map('strip_tags',$_POST));
 	$error = [];
@@ -26,6 +25,10 @@ if(!empty($_POST)){
 			$error['profession'] = '<p class="error">Seuls les propositions de la liste sont acceptées</p>';
 		}
 	}
+	
+	if(isset($post['email'])){
+	
+		$empty = null;
 	
 	if(strlen($post['firstname']) < 3 || strlen($post['firstname']) > 64){
 		$error['firstname'] = '<p class="error">oulala,</p>';
@@ -97,7 +100,7 @@ if(!empty($_POST)){
 	}
 	
 }
-	
+	}
 }
 
 

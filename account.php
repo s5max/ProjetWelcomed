@@ -1,24 +1,24 @@
 <?php
 
-if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
-
-       $idUser = (int) $_SESSION['user']['id'];
-
-       // Jointure SQL permettant de récupérer la recette & le prénom & nom de l'utilisateur l'ayant publié
-       $selectOne = $bdd->prepare('SELECT u.* FROM user AS u WHERE id = :id');
-       $selectOne->bindValue(':id', $idUser, PDO::PARAM_INT);
-       if($selectOne->execute()){
-           $user = $selectOne->fetch(PDO::FETCH_ASSOC);
-       }
-       else {
-           // Erreur de développement
-           var_dump($selectOne->errorInfo());
-           die; // alias de exit(); => die('Hello world');
-       }
-   }
-	else{
-		header('location:./');
-	}
+//if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
+//
+//       $idUser = (int) $_SESSION['user']['id'];
+//
+//       // Jointure SQL permettant de récupérer la recette & le prénom & nom de l'utilisateur l'ayant publié
+//       $selectOne = $bdd->prepare('SELECT u.* FROM user AS u WHERE id = :id');
+//       $selectOne->bindValue(':id', $idUser, PDO::PARAM_INT);
+//       if($selectOne->execute()){
+//           $user = $selectOne->fetch(PDO::FETCH_ASSOC);
+//       }
+//       else {
+//           // Erreur de développement
+//           var_dump($selectOne->errorInfo());
+//           die; // alias de exit(); => die('Hello world');
+//       }
+//   }
+//	else{
+//		header('location:./');
+//	}
 
     require('include/connect.php');
     require('include/xheader.php');
@@ -61,7 +61,8 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
 
 ?>
         
-
+		
+       
         <!--Main content-->
         <main class=" normalsection">
             <div class="row">
@@ -192,42 +193,42 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
 
         <script>
 
-            //Animation init
-            new WOW().init();
-
-            // Material Select Initialization
-            $(document).ready(function() {
-                $('.mdb-select').material_select();
-            });
+//            //Animation init
+//            new WOW().init();
+//
+//            // Material Select Initialization
+//            $(document).ready(function() {
+//                $('.mdb-select').material_select();
+//            });
 
         </script>
 
 
 <script type="text/javascript">
-    $().ready(function(){
-        $('[rel="tooltip"]').tooltip();
-
-    });
-
-    function rotateCard(btn){
-        var $card = $(btn).closest('.card-container');
-        console.log($card);
-        if($card.hasClass('hover')){
-            $card.removeClass('hover');
-        } else {
-            $card.addClass('hover');
-        }
-    }
+//    $().ready(function(){
+//        $('[rel="tooltip"]').tooltip();
+//
+//    });
+//
+//    function rotateCard(btn){
+//        var $card = $(btn).closest('.card-container');
+//        console.log($card);
+//        if($card.hasClass('hover')){
+//            $card.removeClass('hover');
+//        } else {
+//            $card.addClass('hover');
+//        }
+//    }
 </script>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-46172202-4', 'auto');
-  ga('send', 'pageview');
+//  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+//  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+//  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+//  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+//
+//  ga('create', 'UA-46172202-4', 'auto');
+//  ga('send', 'pageview');
 
 </script>
    

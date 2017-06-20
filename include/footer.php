@@ -64,9 +64,10 @@
                     <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6 t-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
 
                         <!--Title-->
-                        <h5 class="title mb-2 normaltitlefoot"><strong>Dernières recherches</strong></h5>
+<!--                        <h5 class="title mb-2 normaltitlefoot"><strong>Dernières recherches</strong></h5>-->
 
                         <!--Opening hours table-->
+<!--
                         <table class="table">
                             <tbody>
                                 <tr>
@@ -80,6 +81,7 @@
                                 </tr>
                             </tbody>
                         </table>
+-->
 
                     </div>
                     <!--/First column-->
@@ -119,3 +121,33 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="js/mdb.min.js"></script>
         
+<script>
+
+	//Animation init
+	new WOW().init();
+
+	// Material Select Initialization
+	$(document).ready(function() {
+		$('.mdb-select').material_select();
+	});
+
+</script>
+
+<script>
+
+	$('.mod').on('click', function(e){
+		
+		e.preventDefault();
+		
+		url = this.getAttribute('data-url');
+		
+		$.ajax({
+			type: 'post',
+			url: url,
+			success:function(o){
+				$('#ajax').html(o);
+			}
+		});
+		
+	});
+</script>      

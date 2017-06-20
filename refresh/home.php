@@ -33,11 +33,8 @@ $r = '/git/ProjetWelcomed/';
 							                                    	
 
 							<a href="<?= $r ?>search.php" target="_self" class="btn wmregister">Voir les offres</a>                                   	
-							<a href="<?= $r ?>account.php" target="_self" class="btn wmregister">Mon Compte</a>                                	
-			<a href="search.php" class="btn wmregister" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	
-
-                        	
-                  
+							<a href="<?= $r ?>account.php" target="_self" class="btn wmregister">Mon Compte</a>   
+                  			
                         <?php }?>
 
 				</div>

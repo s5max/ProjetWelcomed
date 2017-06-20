@@ -1,4 +1,5 @@
- 
+envisager la possibilité de réinitialiser à null un filtre de recherche pendant la recherche
+
 Déclarer la variable $m pour spécifier le chemin des modals (pour que les chemins soient retrouvés quand on change de serveur)
 
 index.php refresh/home.php refresh/navbar.php ajax/search_result.php
@@ -6,7 +7,7 @@ index.php refresh/home.php refresh/navbar.php ajax/search_result.php
 
 chemin $r dans header, login
 
-Changer le chemein dans la variable search dans la page search.php
+Changer le chemin dans la variable javascript search dans la page search.php
 
 
 Centrer les ancres de la navbar

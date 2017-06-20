@@ -252,7 +252,7 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 		<?php 	} ?>
 
 		<div class="md-form">
-			<textarea name="content" id="content" cols="30" rows="50" class="form-control"><?php if(isset($empty)){echo '</textarea>';}else{if(!isset($error['content'])){echo $post['content'];}} ?></textarea>
+			<textarea name="content" id="content" cols="30" rows="5" class="form-control"><?php if(isset($empty)){echo '</textarea>';}else{if(!isset($error['content'])){echo $post['content'];}} ?></textarea>
 			<label for="content">Contenu de l'annonce</label>
 			<?php if(isset($error['content'])){echo $error['content'];} ?>
 		</div>

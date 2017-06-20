@@ -142,6 +142,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                             
 
                         </div>
+<!--
                             <div class="text-center">
                                <p id="nbAd"></p>
                                 <div class="col-sm-12">
@@ -149,6 +150,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                                 </div>
                             </div>
                         
+-->
                     </form>
                     </div>
 
@@ -202,7 +204,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
 <?php
 
 	require('include/footer.php');
-	require('include/script.php');
+	
 			
 ?>
 
@@ -271,3 +273,9 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
 			});
 
 </script>
+
+
+</body>
+
+
+</html>

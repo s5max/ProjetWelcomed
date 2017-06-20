@@ -2,9 +2,20 @@
 
 	session_name('wmd');
 	session_start();
-	$r = /git/ProjetWelcomed/;
-//$r = '/Home/ProjetWelcomed/';
-
+	$r = '/git/ProjetWelcomed/';
+	$m = '/git/ProjetWelcomed/modal/';
+	//$r = '/Home/ProjetWelcomed/';
+	//$m = '/Home/ProjetWelcomed/modal';
+	
+$s = $_SERVER['PHP_SELF'];
+$t = $r.'account.php';
+$c = $r.'contact.php';
+	if($s == $t){
+		if(!isset($_SESSION['user']['id']) || empty($_SESSION['user']['id'])){
+			
+			header('location:./');
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +47,7 @@
 
         <!-- Bootstrap core CSS -->
         <!-- <link href="css/bootstrap337.css" rel="stylesheet"> -->
+        <?php if($s == $c){ ?><link href='css/bootstrap.css' rel='stylesheet' /><?php } ?>
         <link href="css/bootstrap4.min.css" rel="stylesheet"/>
         <link href='css/rotating.css' rel='stylesheet' />
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -106,7 +118,9 @@
                                     <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>login.php" data-toggle="modal" data-target="#modal4all">Se connecter</a>
                                     <?php }else{?>                                      
                                         
-                                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
+                                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une annonce</a>
+                                        
+                                        <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
                                     
                                 <?php }?>
                             </li>

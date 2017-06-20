@@ -2,12 +2,13 @@
 <?php
 session_name('wmd');session_start();
 
-$m = '/Home/ProjetWelcomed/modal/';
+//$m = '/Home/ProjetWelcomed/modal/';
+//$r = '/Home/ProjetWelcomed/';
 
-$m = 'git/ProjetWelcomed/modal/';
+$m = '/git/ProjetWelcomed/modal/';
+$r = '/git/ProjetWelcomed/';
 
 require('include/connect.php');
-
 
 /*INSERTION DES IMAGES DEPUIS LA BDD*/
     $backOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 1');
@@ -136,9 +137,11 @@ require('include/connect.php');
                             </li>
 -->
                            <?php if(isset($_SESSION['user'])){?>
+<!--
                             <li class="nav-item">
                                 <a class="nav-link mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une annonce</a>
                             </li>
+-->
                             
                             <?php } ?>
                             <li class="nav-item">
@@ -161,9 +164,11 @@ require('include/connect.php');
                                     <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>
                                     
                                     <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>login.php" data-toggle="modal" data-target="#modal4all">Se connecter</a>
-                                    <?php }else{?>                                      
+                                    <?php }else{?> 
+                                       
+                                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une annonce</a>     
                                         
-                                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
+                                        <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
                                         
                                     
                                 <?php }?>
@@ -204,11 +209,7 @@ require('include/connect.php');
 
 										<a href="<?= $r ?>search.php" target="_self" class="btn wmregister" data-offset="100">Voir les offres</a>                                   	
 										<a href="<?= $r ?>account.php" target="_self" class="btn wmregister" data-offset="100">Mon Compte</a>                                   	
-
-<!--										<a href="search.php" class="btn wmregister" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	-->
-
-                                    	
-                                    
+                       
                                     <?php }?>
                                 </div>
                             </div>
@@ -270,7 +271,7 @@ require('include/connect.php');
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
                                     <img src="<?php echo "img/".$minOne['img_url']; ?>" class="img-fluid">
-                                    <a href="page.php">
+                                    <a href="<?=$r;?>search.php">
                                         <div class="mask"></div>
                                     </a>
                                 </div>
@@ -300,7 +301,7 @@ require('include/connect.php');
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
                                     <img src="<?php echo "img/".$minTwo['img_url']; ?>" class="img-fluid">
-                                    <a href="#!">
+                                    <a href="<?=$r;?>search.php">
                                         <div class="mask"></div>
                                     </a>
                                 </div>
@@ -330,7 +331,7 @@ require('include/connect.php');
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
                                     <img src="<?php echo "img/".$minThree['img_url']; ?>" class="img-fluid">
-                                    <a href="#!">
+                                    <a href="<?=$r;?>search.php">
                                         <div class="mask"></div>
                                     </a>
                                 </div>
@@ -366,7 +367,7 @@ require('include/connect.php');
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
                                     <img src="<?php echo "img/".$minFour['img_url']; ?>" class="img-fluid">
-                                    <a href="#!">
+                                    <a href="<?=$r;?>search.php">
                                         <div class="mask"></div>
                                     </a>
                                 </div>
@@ -396,7 +397,7 @@ require('include/connect.php');
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
                                     <img src="<?php echo "img/".$minFive['img_url']; ?>" class="img-fluid">
-                                    <a href="#!">
+                                    <a href="<?=$r;?>search.php">
                                         <div class="mask"></div>
                                     </a>
                                 </div>
@@ -426,7 +427,7 @@ require('include/connect.php');
                                 <!--Card image-->
                                 <div class="view overlay hm-white-slight">
                                     <img src="<?php echo "img/".$minSix['img_url']; ?>" class="img-fluid">
-                                    <a href="#!">
+                                    <a href="<?=$r;?>search.php">
                                         <div class="mask"></div>
                                     </a>
                                 </div>
@@ -598,102 +599,15 @@ require('include/connect.php');
         <!--/Main content-->
         
        
-        <!--Footer-->
-        <footer class="page-footer footer-tiles center-on-small-only pt-4" id="footer">
 
-            <!--Footer Links-->
-            <div class="container mb-4">
 
-                <!--First row-->
-                <div class="row">
-
-                    <!--First column-->
-                    <div class="col-xl-4 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
-
-                        <a class="btn btn-lg btn-rounded btn-primary" data-toggle="modal" data-target="#modal-subscribe">Inscription</a>
-                        
-                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
-
-                        <!--About-->
-<!--
-                        <h5 class="title mb-1"><strong>A PROPOS DE NOUS</strong></h5>
-
-                        <p>A remplir !</p>
-
-                        <p class="mb-1-half"> A remplir !</p>
--->
-                        <!--/About -->
-
-                    
-                    </div>
-                    <!--/First column-->
-
-                    <hr class="w-100 hidden-lg-up">
-
-                    <!--Second column-->
-                    <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
-
-                        <div class="footer-socials">
-
-                            <!--Facebook-->
-                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-facebook"></i></a> Facebook/...
-
-                        </div>
-                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
-                        <!--Info-->
-                        <p><i class="fa fa-home mr-3"></i> Route de l'entraide</p>
-                        <p><i class="fa fa-home mr-3"></i> 97200 Fort-de-France</p>
-                        <p><i class="fa fa-envelope mr-3"></i> welcomed@gmail.com</p>
-
-                    </div>
-                    <!--/Second column-->
-
-                    <hr class="w-100 hidden-md-up">
-
-                    <!--First column-->
-                    <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6 t-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
-
-                        <!--Title-->
-                        <h5 class="title mb-2 normaltitlefoot"><strong>Dernières recherches</strong></h5>
-
-                        <!--Opening hours table-->
-                        <table class="table whitetable">
-                            <tbody>
-                                <tr>
-                                    <td>Médecins</td>
-                                </tr>
-                                <tr>
-                                    <td>Chirurgiens-dentistes</td>
-                                </tr>
-                                <tr>
-                                    <td>Orthophonistes</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                    <!--/First column-->
-
-                </div>
-                <!--/First row-->
-
-            </div>
-            <!--/Footer Links-->
-
-            <!--Copyright-->
-            <div class="footer-copyright wow fadeIn" data-wow-delay="0.3s">
-                <div class="container-fluid">
-                    <p>© 2017 Copyright: Welcomed</p>
-                </div>
-            </div>
-            <!--/Copyright-->
-
-        </footer>
-        <!--/Footer Links-->
-
-<?php	require('include/script.php'); ?>
+<?php	require('include/footer.php'); ?>
 	
+	<script>
+			
+		$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});		
 	
+	</script>
 
     </body>
 
