@@ -65,42 +65,43 @@
 
         <!--Main content-->
         <main class=" normalsection">
+                <!--First container-->
+                <div class="container normalsection">
+                    <div class="row">
 
-            <!--First container-->
-            <div class="container normalsection">
+                        <!--Section: Features v.4-->
+                        <section class="section mt-4 feature-box col-xs-12 normalsection" id="features">
 
-                <!--Section: Features v.4-->
-                <section class="section mt-4 feature-box col-xs-12 normalsection" id="features">
+                            <!--Secion heading-->
+                            <h2 class="text-center font-up font-bold mt-1 wow fadeIn" data-wow-delay="0.2s">Contactez-nous !</h2><br>
 
-                    <!--Secion heading-->
-                    <h1 class="text-center font-up font-bold mt-1 wow fadeIn" data-wow-delay="0.2s">Contactez-nous !</h1><br>
+                            <!-- Recherche -->
 
-                    <!-- Recherche -->
+                        </section>
+                        <!--/Section: Features v.4-->
 
-                </section>
-                <!--/Section: Features v.4-->
+                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
 
-                <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
-
-                <!--Section: Products-->
-
-                
-
-            </div>
-            <!--/First container-->
-
+                        <!--Section: Products-->
+                    </div>
+                </div>
+                <!--/First container-->
             <!--Second container-->
-            <div class="container-full whitesection">
+            <div class="container-full whitesection" style="overflow: hidden;">
                 <div class="container">
 
                     <!--Section: About-->
                     <section class="section about mb-4" id="about"> 
 
                         <div class="row">
+
                             <h1 class="title normaltitle">WELCOMED</h1>
-                                <div class="col-sm-12">
-                                    <div class="row wow fadeIn" data-wow-delay="0.4s">
-                                        <div class="col-sm-6">
+
+                            <div class="col-sm-12">
+
+                                <div class="row wow fadeIn" data-wow-delay="0.4s">
+
+                                    <div class="col-lg-6 normalform">
                                         <p>Pour tout renseignement ou demande de contact, veuillez remplir ce formulaire. Nous vous répondrons dans les plus brefs délais.</p>
 
                                         <?php if(isset($success)): // La variable $success n'existe que lorsque tout est ok ?>
@@ -123,10 +124,10 @@
                                             <form method="post" class="form-horizonthal" enctype="multipart/form-data">
 
                                                 <div class="form-group">
-                                                    <div class="col-sm-6">
+                                                    <div class="col-lg-6">
                                                         <input name="lastname" required class="form-control" type="text" placeholder="Saisissez votre Nom">
                                                     </div>
-                                                    <div class="col-sm-6">
+                                                    <div class="col-lg-6">
                                                         <input name="firstname" required class="form-control" type="text" placeholder="Saisissez votre Prénom">
                                                     </div>
                                                 </div>
@@ -148,8 +149,8 @@
 
                                                 <!-- Message -->
                                                 <div class="form-group">
-                                                    <div class="col-xs-12">
-                                                        <textarea id="message" name="message" rows="5" placeholder="Saisissez votre message" class="form-control"></textarea>           
+                                                    <div class="col-sm-12">
+                                                        <textarea name="message" rows="5" placeholder="Saisissez votre message" class="form-control"></textarea>           
                                                     </div>
                                                 </div>
                                                     
@@ -165,8 +166,11 @@
                                         ?>
                                     </div>
 
-                                    <iframe class="col-sm-6" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15442.480820502418!2d-61.0343062!3d14.6206985!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4905ada70da911c0!2sPiment+Sucr%C3%A9!5e0!3m2!1sfr!2s!4v1496434529644" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                                    <iframe class="col-lg-6" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15442.480820502418!2d-61.0343062!3d14.6206985!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4905ada70da911c0!2sPiment+Sucr%C3%A9!5e0!3m2!1sfr!2s!4v1496434529644" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
                                 </div>
+
                             </div>
 
                     </section>

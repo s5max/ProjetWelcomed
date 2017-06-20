@@ -68,6 +68,12 @@ select {
 .whitetable {
   color: #fff;
 }
+.normalform {
+  padding-bottom: 20px;
+}
+.normalpara {
+  width: 100% !important;
+}
 /*----------------------------------
     FORMS BOOTSTRAP 3.3.7
 ------------------------------------*/
