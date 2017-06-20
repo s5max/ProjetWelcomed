@@ -19,7 +19,7 @@ if(!empty($_POST)){
 	
 	$post = array_map('trim',array_map('strip_tags',$_POST));
 	$error = [];
-	var_dump($post);
+	
 	if(!empty($post['profession'])){
 		if(!is_numeric($post['profession'])){
 

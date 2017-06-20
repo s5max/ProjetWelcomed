@@ -1,0 +1,27 @@
+select{cursor: pointer}
+.note{text-align: right;font-size: 0.8rem;color:#4fada7}
+.error{text-align: center;color: #961b25}
+.valid{top:-5px !important;color:#4fada7 !important}
+.pad-right{padding-right: 20px}
+.done{padding-top: 15px;text-align: center;}
+.done>h4{color:#4fada7}
+.formule{height: auto;margin-bottom:10px;padding:10px;border:1px solid #eceeef;border-radius:3px;overflow: hidden;}
+.formule>a{float:right}
+.lbl {
+	color: #757575;
+	font-size: 1rem;
+	margin-bottom: 0rem;
+	font-weight: bold;
+}
+
+.option {
+	padding: 10px;
+}
+
+.option > span {
+	padding: 8px;
+	border: solid #ccc 1px;
+	border-radius: 2px;
+	color: #ccc;
+	cursor: pointer;
+}

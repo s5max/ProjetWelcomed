@@ -10,13 +10,23 @@
                     <!--First column-->
                     <div class="col-xl-4 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
 
+
+<!--
+                        <a class="btn btn-lg btn-rounded btn-primary" data-url="<?= $m ?>subscribe.php" data-toggle="modal" data-target="#modal4all">Inscription</a>
+
                         <a class="btn btn-lg btn-rounded btn-primary" data-toggle="modal" data-target="#modal-subscribe">Inscription</a>
+
                         
                         <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
+-->
 
                         <!--About-->
+<!--                        <h5 class="title mb-1 normaltitlefoot"><strong>A PROPOS DE NOUS</strong></h5>-->
+<!--
+
 <!--
                         <h5 class="title mb-1"><strong>A PROPOS DE NOUS</strong></h5>
+
 
                         <p>A remplir !</p>
 
@@ -109,71 +119,3 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="js/mdb.min.js"></script>
         
-       	<script>
-
-//			$('#sbt').on('click', function(e){
-//				
-//				e.preventDefault();
-//				
-//				var profession = $('#profession1').val();
-//				
-//				if(profession === 'none'){
-//					
-//					$('#modal-content').append('<p>Vous devez choisir un métier avant de valider le formulaire');
-//				}
-//				else{
-//					
-//					$.ajax({
-//						  type: 'post',
-//						  url: '/GIT/welco-med/import/check.php',
-//						  data: { 
-//
-//							  profession    : $('#profession1').val(),
-//							  name			: $('#profession1 option:selected').text(),
-//							  firstname		: $('#firstname').val(),
-//							  lastname		: $('#lastname').val(),
-//							  address		: $('#address').val(),
-//							  zipcode		: $('#zipcode').val(),
-//							  city			: $('#city1').val(),
-//							  department	: $('#department1').val(),
-//							  telephone		: $('#telephone1').val(),
-//							  email			: $('#email1').val(),
-//							  password		: $('#password').val(),
-//
-//						  }
-//
-//					}).done(function(o){
-//						//console.log(o);
-//						$('#modal-content').html(o);
-//
-//					});
-//					
-//				}
-//				
-//			});
-//			
-//			
-//			$('#log').on('click', function(e){
-//				
-//				e.preventDefault();
-//					
-//					$.ajax({
-//						  type: 'post',
-//						  url: '/GIT/welco-med/import/log.php',
-//						  data: { 
-//
-//							  email			: $('#email_log').val(),
-//							  password		: $('#password_log').val(),
-//
-//						  }
-//
-//					}).done(function(o){
-//						console.log(o);
-//						$('#modal-log-content').html(o);
-//
-//					});
-//					
-//				
-//			});
-
-		</script>
