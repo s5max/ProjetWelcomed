@@ -124,13 +124,10 @@ if(!empty($_POST)){
 
 			<p class="note">* Champs obligatoires</p>
 
-			<div class="md-form"><input type="text" name="firstname" id="firstname" class="form-control" <?php if(isset($empty)){echo '><label for="firstname">Votre Nom *</label>'; }else{if(!isset($error['firstname'])){echo'value="'.$post['firstname'].'" disabled><label for="firstname" class="active">Votre Nom *</label>';}else{echo '><label for="firstname">Votre Nom *</label>'. $error['firstname'];}} ?></div>
-			
-			
 			<div class="md-form"><input type="text" name="lastname" id="lastname" class="form-control" 
 			<?php 	if(isset($empty)){
 	
-					echo '><label for="lastname">Votre Prénom *</label>';
+					echo '><label for="lastname">Votre Nom *</label>';
 	
 					}
 					else{
@@ -143,6 +140,9 @@ if(!empty($_POST)){
 						}
 					} ?>
 			</div>
+			
+			
+			<div class="md-form"><input type="text" name="firstname" id="firstname" class="form-control" <?php if(isset($empty)){echo '><label for="firstname">Votre Prénom *</label>'; }else{if(!isset($error['firstname'])){echo'value="'.$post['firstname'].'" disabled><label for="firstname" class="active">Votre Nom *</label>';}else{echo '><label for="firstname">Votre Nom *</label>'. $error['firstname'];}} ?></div>
 			
 			
 			<div class="md-form"><input type="text" name="email" id="email" class="form-control" 

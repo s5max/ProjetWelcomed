@@ -2,9 +2,12 @@
 
 	session_name('wmd');
 	session_start();
+
 	$r = '/git/ProjetWelcomed/';
 	$m = '/git/ProjetWelcomed/modal/';
 	
+
+//	$r = '/Home/ProjetWelcomed/';
 
 ?>
 
@@ -27,18 +30,7 @@
         <meta property="og:url" content="https://mdbootstrap.com/live/_MDB/templates/Landing-Page/organic-cafe-landing-page.html">
         <meta property="og:site_name" content="mdbootstrap.com">
 -->
-        <!-- /Meta OG -->
-
-        <!-- Twitter Card -->
-<!--
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:description" content="Perfect for projects that have something in common with cafe's and restaurants." />
-        <meta name="twitter:title" content="Material Design Organic Cafe Landing Page" />
-        <meta name="twitter:site" content="@MDBootstrap" />
-        <meta name="twitter:image" content="https://mdbootstrap.com/img/Live/MDB/13.03/cafe-fb.jpg" />
-        <meta name="twitter:creator" content="@MDBootstrap" />
--->
-        <!-- /Twitter Card -->    
+        <!-- /Meta OG -->   
 
         <!-- Police Roboto -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">

@@ -2,8 +2,12 @@
 <?php
 session_name('wmd');session_start();
 
+
 $m = '/git/ProjetWelcomed/modal/';
 $r = '/git/ProjetWelcomed/';
+
+//$m = '/Home/ProjetWelcomed/modal/';
+
 
 require('include/connect.php');
 
@@ -589,19 +593,14 @@ require('include/connect.php');
                         <div class="footer-socials">
 
                             <!--Facebook-->
-                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-facebook"></i></a>
-                            <!--Twitter-->
-                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-twitter"></i></a>
-                            <!--Google +-->
-                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-google-plus"></i></a>
+                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-facebook"></i></a> Facebook/...
 
                         </div>
                         <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
                         <!--Info-->
-                        <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
-                        <p><i class="fa fa-envelope mr-3"></i> info@example.com</p>
-                        <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
-                        <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+                        <p><i class="fa fa-home mr-3"></i> Route de l'entraide</p>
+                        <p><i class="fa fa-home mr-3"></i> 97200 Fort-de-France</p>
+                        <p><i class="fa fa-envelope mr-3"></i> welcomed@gmail.com</p>
 
                     </div>
                     <!--/Second column-->
@@ -612,10 +611,10 @@ require('include/connect.php');
                     <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6 t-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
 
                         <!--Title-->
-                        <h5 class="title mb-2"><strong>Dernières recherches</strong></h5>
+                        <h5 class="title mb-2 normaltitlefoot"><strong>Dernières recherches</strong></h5>
 
                         <!--Opening hours table-->
-                        <table class="table">
+                        <table class="table whitetable">
                             <tbody>
                                 <tr>
                                     <td>Médecins</td>

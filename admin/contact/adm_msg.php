@@ -1,6 +1,5 @@
 <?php
     require('../../include/connect.php');
-    require('../../include/header.php');
     require('../include/log.php');
 
     if(isset($_GET['id']) && !empty($_GET['id'])){

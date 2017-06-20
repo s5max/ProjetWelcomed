@@ -3,7 +3,7 @@
 session_name('wmd');session_start();
 require('../include/connect.php');
 
-$r = 'http://localhost/git/ProjetWelcomed/';
+$r = '/Home/ProjetWelcomed/';
 
 $select = $bdd->prepare('SELECT * FROM profession');
 

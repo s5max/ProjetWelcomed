@@ -1,8 +1,11 @@
+
 <?php 
 session_name('wmd');session_start();
 $m = '/git/ProjetWelcomed/modal/';
 
+//$m = '/Home/ProjetWelcomed/modal/';
 ?>
+
 <li>
     <?php if(!isset($_SESSION['user'])){?>
         <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>

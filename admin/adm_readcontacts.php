@@ -1,6 +1,5 @@
 <?php
     require('../include/connect.php');
-    require('../include/header.php');
     require('include/log.php');
 
     $select = $bdd->prepare('SELECT * FROM messages WHERE msgread = 1 ORDER BY id DESC');

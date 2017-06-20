@@ -1,7 +1,11 @@
+
 <?php session_name('wmd'); session_start();
 
-$m = '/git/ProjetWelcomed/modal/'
+$m = '/git/ProjetWelcomed/modal/';
+
+//$m = '/Home/ProjetWelcomed/modal/';
 ?>
+
 <div class="hm-black-strong-1">
 	<div class="full-bg-img flex-center">
 		<div class="container">
