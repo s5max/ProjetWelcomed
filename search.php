@@ -68,7 +68,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
           
        	<!--Main content-->
         <main class=" normalsection">
-
+        	<div class="row">
             <!--First container-->
             <div class="container normalsection">
 
@@ -141,7 +141,6 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                             
                             
 
-<!--
                         </div>
                             <div class="text-center">
                                <p id="nbAd"></p>
@@ -149,7 +148,6 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                                     <button type="submit" class="btn btn-primary">Rechercher</button>
                                 </div>
                             </div>
--->
                         
                     </form>
                     </div>
@@ -162,7 +160,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                 <!--Section: Products-->
 
                 
-
+            </div>
             </div>
             <!--/First container-->
           

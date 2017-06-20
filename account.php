@@ -24,7 +24,6 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
     require('include/xheader.php');
 
 
-
 	$select = $bdd->prepare('SELECT * FROM profession');
 
 	if($select->execute()){
@@ -61,12 +60,11 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
 	}
 
 ?>
-
         
 
         <!--Main content-->
         <main class=" normalsection">
-
+            <div class="row">
             <!--First container-->
             <div class="container normalsection">
 
@@ -86,12 +84,13 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
                 <!--Section: Products-->
 
                 
-
+            </div>
             </div>
             <!--/First container-->
 
             <!--Second container-->
             <div class="container-full whitesection">
+                <div class="row">
                 <div class="container">
 
                     <!--Section: About-->
@@ -107,28 +106,28 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
                                                     <h4>Utilisateur :</h4>
                                                 </li>
                                             </ol>
-                                            <h2><?php echo $user['lastname'].' '.$user['firstname']; ?></h2>
+                                            <h4><?php echo $user['lastname'].' '.$user['firstname']; ?></h4>
 
                                             <ol class="breadcrumb">
                                                 <li class="active">
                                                     <h4>Spécialité :</h4>
                                                 </li>
                                             </ol>
-                                            <h2><?php echo $user['profession']; ?></h2>
+                                            <h4><?php echo $user['profession']; ?></h4>
 
                                             <ol class="breadcrumb">
                                                 <li class="active">
                                                     <h4>Téléphone :</h4>
                                                 </li>
                                             </ol>
-                                            <h2><?php echo $user['telephone']; ?></h2>
+                                            <h4><?php echo $user['telephone']; ?></h4>
                                             
                                             <ol class="breadcrumb">
                                                 <li class="active">
                                                     <h4>Email :</h4>
                                                 </li>
                                             </ol>
-                                            <h2><?php echo $user['email']; ?></h2>
+                                            <h4><?php echo $user['email']; ?></h4>
                                         </div>
                                         <div class="col-md-6">
                                             <ol class="breadcrumb">
@@ -136,20 +135,20 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
                                                     <h4>Adresse :</h4>
                                                 </li>
                                             </ol>
-                                            <h2><?php echo $user['address']; ?></h2>
+                                            <h4><?php echo $user['address']; ?></h4>
                                             
                                             <ol class="breadcrumb">
                                                 <li class="active">
                                                     <h4>Ville :</h4>
                                                 </li>
                                             </ol>
-                                            <h2><?php echo $user['city']; ?></h2>
+                                            <h4><?php echo $user['city']; ?></h4>
                                             <ol class="breadcrumb">
                                                 <li class="active">
                                                     <h4>Code Postal :</h4>
                                                 </li>
                                             </ol>
-                                            <h2><?php echo $user['zipcode'].' '.$user['department']; ?></h2>
+                                            <h4><?php echo $user['zipcode'].' '.$user['department']; ?></h4>
                                         </div>
                                 </div>
                             </div>
@@ -182,7 +181,7 @@ if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
                 <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
 
                 <!--Section: Testimonials v.3-->
-
+                </div>
             </div>
             <!--/Second container-->
 

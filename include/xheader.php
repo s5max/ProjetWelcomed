@@ -2,12 +2,8 @@
 
 	session_name('wmd');
 	session_start();
-
-	$r = '/git/ProjetWelcomed/';
-	$m = '/git/ProjetWelcomed/modal/';
-	
-
-//	$r = '/Home/ProjetWelcomed/';
+	$r = /git/ProjetWelcomed/;
+//$r = '/Home/ProjetWelcomed/';
 
 ?>
 
@@ -40,7 +36,6 @@
 
         <!-- Bootstrap core CSS -->
         <!-- <link href="css/bootstrap337.css" rel="stylesheet"> -->
-        <link href='css/bootstrap.css' rel='stylesheet' />
         <link href="css/bootstrap4.min.css" rel="stylesheet"/>
         <link href='css/rotating.css' rel='stylesheet' />
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -51,8 +46,6 @@
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/modal-style.css" rel="stylesheet">
-        
-        
 
     </head>
 
@@ -82,23 +75,25 @@
                                 <a class="nav-link" href="<?= $r ?>">Accueil <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Voir les offres</a>
+                                <?php if(isset($_SESSION['user'])){ echo '<a class="nav-link" href="search.php">Voir les offres</a>';}?>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.php" data-offset="100">Contactez-nous</a>
+                            </li>
+
+                            <?php if(isset($_SESSION['user'])){?>
+
 <!--
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= $r ?>contact.php" data-offset="100">Contactez-nous</a>
+                                <a class="nav-link" href="#products" data-offset="100">Publier une annonce</a>
                             </li>
 -->
-                            <?php if(isset($_SESSION['user'])){?>
-                            <li class="nav-item">
-                                <a class="nav-link mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une annonce</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="<?= $r ?>account.php" data-offset="100">Mon Compte</a>
-                            </li>
                             <?php } ?>
                             <li class="nav-item">
-                                <a class="nav-link wcomlink" href="#contact" data-target="#modal-contact">Welcomed Community</a>
+                                <?php if(isset($_SESSION['user'])){echo '<a class="nav-link" href="account.php">Mon Compte</a>';}?>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link wcomlink" href="./#about" data-target="#modal-contact">Welcomed Community</a>
                             </li>
                         </ul>
 

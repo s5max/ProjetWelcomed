@@ -1,4 +1,3 @@
-
 <?php session_name('wmd'); session_start();
 
 $m = '/git/ProjetWelcomed/modal/';
@@ -6,6 +5,7 @@ $r = '/git/ProjetWelcomed/';
 
 //$m = '/Home/ProjetWelcomed/modal/';
 ?>
+
 
 <div class="hm-black-strong-1">
 	<div class="full-bg-img flex-center">
@@ -31,8 +31,11 @@ $r = '/git/ProjetWelcomed/';
                         
 							<a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une Annonce</a>
 							                                    	
+
 							<a href="<?= $r ?>search.php" target="_self" class="btn wmregister">Voir les offres</a>                                   	
 							<a href="<?= $r ?>account.php" target="_self" class="btn wmregister">Mon Compte</a>                                	
+			<a href="search.php" class="btn wmregister" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	
+
                         	
                   
                         <?php }?>

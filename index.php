@@ -2,12 +2,9 @@
 <?php
 session_name('wmd');session_start();
 
+$m = '/Home/ProjetWelcomed/modal/';
 
-$m = '/git/ProjetWelcomed/modal/';
-$r = '/git/ProjetWelcomed/';
-
-//$m = '/Home/ProjetWelcomed/modal/';
-
+$m = 'git/ProjetWelcomed/modal/';
 
 require('include/connect.php');
 
@@ -71,6 +68,40 @@ require('include/connect.php');
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/modal-style.css" rel="stylesheet">
+        
+<!--
+        <style>
+			select{cursor: pointer}
+			.note{text-align: right;font-size: 0.8rem;color:#4fada7}
+			.error{text-align: center;color: #961b25}
+			.valid{top:-5px !important;color:#4fada7 !important}
+			.pad-right{padding-right: 20px}
+			.done{padding-top: 15px;text-align: center;}
+			.done>h4{color:#4fada7}
+			.formule{height: auto;margin-bottom:10px;padding:10px;border:1px solid #eceeef;border-radius:3px;overflow: hidden;}
+			.formule>a{float:right}
+			.lbl {
+				color: #757575;
+				font-size: 1rem;
+				margin-bottom: 0rem;
+				font-weight: bold;
+			}
+			
+			.option {
+				padding: 10px;
+			}
+			
+			.option > span {
+				padding: 8px;
+				border: solid #ccc 1px;
+				border-radius: 2px;
+				color: #ccc;
+				cursor: pointer;
+			}
+		</style>
+-->
+    
+    	
 
     </head>
     
@@ -170,9 +201,12 @@ require('include/connect.php');
                                     
 										<a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une Annonce</a>
 										                                    	
-										<a href="search.php" target="_self" class="btn wmregister" data-offset="100">Voir les offres</a>                                   	
+
+										<a href="<?= $r ?>search.php" target="_self" class="btn wmregister" data-offset="100">Voir les offres</a>                                   	
 										<a href="<?= $r ?>account.php" target="_self" class="btn wmregister" data-offset="100">Mon Compte</a>                                   	
-                                    	
+
+<!--										<a href="search.php" class="btn wmregister" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	-->
+
                                     	
                                     
                                     <?php }?>
@@ -431,6 +465,7 @@ require('include/connect.php');
                         <div class="container">
                             <!--First row-->
                             <div class="row text-white flex-center text-center mt-1 wow fadeIn" data-wow-delay="0.4s">
+                            <hr class="hr-light w-100">
                                 <h1 class="brand-name font-up">Welcomed Community</h1>
                                 <hr class="hr-light w-100">
                                 <h2 class="font-up pt-1"><strong>...</strong></h2>
