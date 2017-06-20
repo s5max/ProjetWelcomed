@@ -1,3 +1,5 @@
+<?php
+?>
 <!--Navigation & Intro-->
         <header class="normalheader">
 
@@ -22,32 +24,31 @@
                                 <?php echo '<a class="nav-link" href="index.php">Accueil</a>';?>
                             </li>
                             <li class="nav-item">
-                                <?php echo '<a class="nav-link" href="ad/ad_list.php">Voir les offres</a>';?>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-offset="100" data-toggle="modal" data-target="#modal-step1">Publier une annonce</a>
+                                <?php if(isset($_SESSION['user'])){ echo '<a class="nav-link" href="search.php">Voir les offres</a>';}?>
                             </li>
                             <li class="nav-item">
                                 <?php echo '<a class="nav-link" href="contact.php">Contactez-nous</a>';?>
                             </li>
                             <li class="nav-item">
-                                <?php if(isset($_SESSION['user']['id']) && isset($_SESSION['email'])){echo '<a class="nav-link" href="account.php">Mon Compte</a>';} else {echo '<a class="nav-link" data-toggle="modal" data-target="#modal-reservation">Se Connecter</a>';}?>
+                                <?php if(isset($_SESSION['user'])){echo '<a class="nav-link" href="account.php">Mon Compte</a>';} else {echo '<a class="nav-link" data-toggle="modal" data-target="#modal-reservation">Se Connecter</a>';}?>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link wcomlink" href="#contact" data-target="#modal-contact">Welcomed Community</a>
+                                <a class="nav-link wcomlink" href="./#about" data-target="#modal-contact">Welcomed Community</a>
                             </li>
                         </ul>
 
                         <!--Social Icons-->
-                        <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-instagram"></i></a>
+                        <ul id="navrefresh" class="navbar-nav">
+                            <li>
+                                <?php if(!isset($_SESSION['user'])){?>
+                                    <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>
+                                    
+                                    <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>login.php" data-toggle="modal" data-target="#modal4all">Se connecter</a>
+                                    <?php }else{?>                                      
+                                        
+                                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
+                                    
+                                <?php }?>
                             </li>
                         </ul>
 

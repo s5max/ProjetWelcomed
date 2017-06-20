@@ -35,7 +35,6 @@
 
         <!-- Bootstrap core CSS -->
         <!-- <link href="css/bootstrap337.css" rel="stylesheet"> -->
-        <link href='css/bootstrap.css' rel='stylesheet' />
         <link href="css/bootstrap4.min.css" rel="stylesheet"/>
         <link href='css/rotating.css' rel='stylesheet' />
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -69,37 +68,39 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
 
                         <!--Links-->
-                        <ul class="navbar-nav mr-auto smooth-scroll">
+                        <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="<?= $r ?>">Accueil <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#features">Voir les offres</a>
+                                <?php if(isset($_SESSION['user'])){ echo '<a class="nav-link" href="search.php">Voir les offres</a>';}?>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about" data-offset="100">Contactez-nous</a>
+                                <a class="nav-link" href="contact.php" data-offset="100">Contactez-nous</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#products" data-offset="100">Publier une annonce</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#testimonials" data-offset="100">Mon Compte</a>
+                                <?php if(isset($_SESSION['user'])){echo '<a class="nav-link" href="account.php">Mon Compte</a>';}?>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link wcomlink" href="#contact" data-target="#modal-contact">Welcomed Community</a>
+                                <a class="nav-link wcomlink" href="./#about" data-target="#modal-contact">Welcomed Community</a>
                             </li>
                         </ul>
 
                         <!--Social Icons-->
-                        <ul class="navbar-nav nav-flex-icons">
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"><i class="fa fa-instagram"></i></a>
+                        <ul id="navrefresh" class="navbar-nav">
+                            <li>
+                                <?php if(!isset($_SESSION['user'])){?>
+                                    <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>
+                                    
+                                    <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>login.php" data-toggle="modal" data-target="#modal4all">Se connecter</a>
+                                    <?php }else{?>                                      
+                                        
+                                        <a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
+                                    
+                                <?php }?>
                             </li>
                         </ul>
 

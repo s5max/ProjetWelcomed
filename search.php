@@ -68,7 +68,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
           
        	<!--Main content-->
         <main class=" normalsection">
-
+        	<div class="row">
             <!--First container-->
             <div class="container normalsection">
 
@@ -160,7 +160,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                 <!--Section: Products-->
 
                 
-
+            </div>
             </div>
             <!--/First container-->
           

@@ -449,6 +449,7 @@ require('include/connect.php');
                         <div class="container">
                             <!--First row-->
                             <div class="row text-white flex-center text-center mt-1 wow fadeIn" data-wow-delay="0.4s">
+                            <hr class="hr-light w-100">
                                 <h1 class="brand-name font-up">Welcomed Community</h1>
                                 <hr class="hr-light w-100">
                                 <h2 class="font-up pt-1"><strong>...</strong></h2>
