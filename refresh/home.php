@@ -1,4 +1,7 @@
-<?php session_name('wmd'); session_start();?>
+<?php session_name('wmd'); session_start();
+
+$m = '/git/ProjetWelcomed/modal/'
+?>
 <div class="hm-black-strong-1">
 	<div class="full-bg-img flex-center">
 		<div class="container">
@@ -23,7 +26,7 @@
                         
 							<a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une Annonce</a>
 							                                    	
-							<a href="search.php" class="btn wmregister" data-offset="100" data-toggle="modal" data-target="#modal4all">Voir les offres</a>                                    	
+							<a href="search.php" class="btn wmregister" data-offset="100">Voir les offres</a>                                	
                         	
                         	<a class="btn wmlogin mod" data-offset="100" data-url="<?=$m?>logout.php" data-toggle="modal" data-target="#modal4all">Se déconnecter</a>
                         

@@ -141,6 +141,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                             
                             
 
+<!--
                         </div>
                             <div class="text-center">
                                <p id="nbAd"></p>
@@ -148,6 +149,7 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                                     <button type="submit" class="btn btn-primary">Rechercher</button>
                                 </div>
                             </div>
+-->
                         
                     </form>
                     </div>
