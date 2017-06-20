@@ -17,21 +17,20 @@
                         <a class="btn btn-lg btn-rounded btn-primary" data-toggle="modal" data-target="#modal-subscribe">Inscription</a>
 
                         
-                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
 -->
+                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
 
                         <!--About-->
-<!--                        <h5 class="title mb-1 normaltitlefoot"><strong>A PROPOS DE NOUS</strong></h5>-->
-<!--
-
-<!--
-                        <h5 class="title mb-1"><strong>A PROPOS DE NOUS</strong></h5>
+                        <h5 class="title mb-1 normaltitlefoot"><strong>A PROPOS DE NOUS</strong></h5>
 
 
-                        <p>A remplir !</p>
+<!--                         <h5 class="title mb-1"><strong>A PROPOS DE NOUS</strong></h5>
+ -->
 
-                        <p class="mb-1-half"> A remplir !</p>
--->
+                        <p><a href="contact.php">Contact</a></p>
+
+                        <p class="mb-1-half"><a href="legal.php">Mentions Légales</a></p>
+
                         <!--/About -->
 
                     
