@@ -2,16 +2,17 @@
 <?php
 session_name('wmd');session_start();
 
-//$m = '/Home/ProjetWelcomed/modal/';
-//$r = '/Home/ProjetWelcomed/';
+$m = '/Home/ProjetWelcomed/modal/';
+$r = '/Home/ProjetWelcomed/';
 
-$m = '/git/ProjetWelcomed/modal/';
-$r = '/git/ProjetWelcomed/';
+/*$m = '/git/ProjetWelcomed/modal/';
+$r = '/git/ProjetWelcomed/';*/
 
 require('include/connect.php');
+require('include/home_edit.php');
 
 /*INSERTION DES IMAGES DEPUIS LA BDD*/
-    $backOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 1');
+/*    $backOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 1');
     $backTwo = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 2');
     $picOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 3');
     $picTwo = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 4');
@@ -29,7 +30,7 @@ require('include/connect.php');
     if($picFour->execute()){$minFour = $picFour->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($picFive->execute()){$minFive = $picFive->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($picSix->execute()){$minSix = $picSix->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picWC->execute()){$minWC = $picWC->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($picWC->execute()){$minWC = $picWC->fetch(PDO::FETCH_ASSOC);}else {die;}*/
 
 ?>
 
@@ -187,7 +188,7 @@ require('include/connect.php');
                         <div class="container">
                             <div class="row smooth-scroll">
                                 <div class="col-md-12 text-center pt-3 wow fadeIn" data-wow-delay="0.2s">
-                                    <h1 class="white-text brand-name font-up font-bold hwelcomed">Welcomed</h1>
+                                    <h1 class="white-text brand-name font-up font-bold hwelcomed"><?php echo $home_title['text_content']; ?></h1>
                                     <div class="row">
                                         <div class="col-md-12 div-color">
                                             <div class="divider-new div-blue">
