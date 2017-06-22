@@ -228,7 +228,7 @@
                                             <div class="col-xs-12">
                                                 <label>Titre :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-tag" aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" name="title" value="<?=$image['title']; ?>" disabled>
                                                 </div>
                                             </div>
@@ -239,7 +239,7 @@
                                             <div class="col-xs-12">
                                                 <label>Taille Recommandée :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-address-card" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-arrows-alt" aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" name="img_size" value="<?=$image['img_size']; ?>" disabled>
                                                 </div>
                                             </div>
@@ -250,7 +250,7 @@
                                             <div class="col-xs-12">
                                                 <label>Description :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" name="description" value="<?=$image['description']; ?>" disabled>
                                                 </div>
                                             </div>
@@ -278,7 +278,7 @@
                                             <div class="col-xs-12">
                                                 <label>Image :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
                                                     <input type="file" class="form-control" name="picture" value="<?=$image['img_url']; ?>">
                                                 </div>
                                             </div>

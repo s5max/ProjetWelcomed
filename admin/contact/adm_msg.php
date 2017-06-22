@@ -178,7 +178,7 @@
                     <div class="col-md-12">
                         <div class="col-md-12 panel panel-default r-p">
                             <div class="panel-heading">
-                                    <h1 class="panel-title"><i class="fa fa-user-circle fa-fw"></i> Objet</h1>
+                                    <h1 class="panel-title"><i class="fa fa-envelope"></i> Objet</h1>
                             </div>
                             <h4 class="wmpad"><?php echo $msg['object']; ?></h2>
 

@@ -6,6 +6,11 @@
     $partnerU = []; // Contiendra les données épurées
     $errors = [];
     $success = false;
+    $maxSize = (1024 * 1000) * 4; // 1Ko => 1024 octets
+    $upload_dir = '../../img/';
+    $mimeTypeAvailable = ['image/png', 'image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif'];
+    $finfo = '';
+    $newName = "";
 
 
     if(isset($_GET['id']) && !empty($_GET['id'])){
@@ -23,6 +28,80 @@
             // Erreur de développement
             var_dump($image->errorInfo());
             die; // alias de exit(); => die('Hello world');
+        }
+    }
+
+    if(isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])){
+    $idPartner = (int) $_GET['id'];
+
+        // Soumission du formulaire
+        if(!empty($_POST)){
+
+            // équivalent au foreach de nettoyage
+            $post = array_map('trim', array_map('strip_tags', $_POST)); 
+
+            if(empty($post['partner'])) {
+                $errors[] = "Veuillez renseigner le nom du partenaire !";
+            }
+
+            // Ici on traite l'upload d'image
+            if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){ // Permet de vérifier qu'un fichier est envoyé
+
+            $finfo = new finfo();
+            $mimeType = $finfo->file($_FILES['picture']['tmp_name'], FILEINFO_MIME_TYPE);
+
+            $extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+
+            // On vérifie que le type de fichier est un mime type valide
+            if(in_array($mimeType, $mimeTypeAvailable)){
+
+                // Vérification de la taille 
+                if($_FILES['picture']['size'] <= $maxSize){
+
+                    if(!is_dir($upload_dir)){
+                        mkdir($upload_dir, 0755); // Créer le dossier
+                    }
+
+                    // Renomme le fichier
+                    $newName = uniqid('img_').'.'.$extension;
+
+                    if(!move_uploaded_file($_FILES['picture']['tmp_name'], $upload_dir.$newName)){
+                        $errors[] = 'Error during picture\'s upload  !';
+                    }
+                } else {
+                        $errors[] = 'L\'image excède 2 Mo !';
+                    }
+                } else {
+                    $errors[] = 'L\'image n\'est pas valide !';
+                }
+            }
+
+            if(count($errors) === 0)
+            {
+
+                $update = $bdd->prepare('UPDATE partnership SET partner = :partner, description = :description, partner_link = :partner_link, partner_picture = :partner_picture WHERE partner_id = :partner_id');
+
+                $update->bindValue(':partner_id', $idPartner, PDO::PARAM_INT);
+                $update->bindValue(':partner', $post['partner']);
+                $update->bindValue(':description', $post['description']);
+                $update->bindValue(':partner_link', $post['partner_link']);
+                $update->bindValue(':partner_picture', $newName);
+
+                if($update->execute())
+                {
+                    $success = 'Félicitations la publicité a été créé !';
+                    header("refresh:3");
+                }
+                else
+                {
+                    var_dump($update->errorInfo());
+                }
+            }
+            else
+            {
+                $textErrors = implode('<br>', $errors);
+            }
+
         }
     }
 
@@ -154,7 +233,7 @@
                                             <div class="col-xs-12">
                                                 <label>Partenaire :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" value="<?=$partner['partner']; ?>" disabled>
                                                 </div>
                                             </div>
@@ -165,7 +244,7 @@
                                             <div class="col-xs-12">
                                                 <label>Lien :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" value="<?=$partner['partner_link']; ?>" disabled>
                                                 </div>
                                             </div>
@@ -187,7 +266,9 @@
                                             <div class="col-xs-12">
                                                 <label>Image :</label>
                                                 <div class="admpicupdate">
+                                                    <?php if(!empty($partner['partner_picture'])):?>
                                                     <?php echo '<img src="../../img/'.$partner['partner_picture'].'" class="img-responsive">'; ?>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -205,12 +286,22 @@
 
                                     <form class="form-horizontal col-sm-12 uppicture" method="post" enctype="multipart/form-data">
 
+                                    <div class="col-xs-12">
+                                        <?php if($success == true): // La variable $success est envoyé via le controller?>
+                                        <?php echo '<div class="alert alert-success">Le texte a été mis à jour.</div>'; ?>
+                                        <?php endif; ?>
+
+                                        <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
+                                        <?php echo '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>'; ?>
+                                        <?php endif; ?>
+                                    </div>
+
                                         <!-- Titre -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Partenaire :</label>
+                                                <label>Partenaire : <span class="requis">*</span></label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" name="partner" required>
                                                 </div>
                                             </div>
@@ -221,7 +312,7 @@
                                             <div class="col-xs-12">
                                                 <label>Lien :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                                                    <span class="input-group-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
                                                     <input type="text" class="form-control" name="partner_link">
                                                 </div>
                                             </div>
@@ -241,10 +332,10 @@
                                         <!-- Image -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Image :</label>
+                                                <label>Publier une image :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input type="file" class="form-control" name="partner_picture">
+                                                    <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
+                                                    <input type="file" class="form-control" name="picture">
                                                 </div>
                                             </div>
                                         </div>
