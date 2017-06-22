@@ -66,7 +66,7 @@
                     $newName = uniqid('img_').'.'.$extension;
 
                     if(!move_uploaded_file($_FILES['picture']['tmp_name'], $upload_dir.$newName)){
-                        $errors[] = 'Error during picture\'s upload  !';
+                        $errors[] = 'Erreur durant l\'upload de l\'image  !';
                     }
                 } else {
                         $errors[] = 'L\'image excède 2 Mo !';
@@ -281,12 +281,13 @@
                                 <div class="col-md-12 panel panel-default r-p">
 
                                 <div class="panel-heading">
-                                    <h1 class="panel-title"><i class="fa fa-refresh"></i> Mettre à jour</h1>
+                                    <h1 class="panel-title"><i class="fa fa-refresh"></i> Mettre à jour </h1>
                                 </div>
 
                                     <form class="form-horizontal col-sm-12 uppicture" method="post" enctype="multipart/form-data">
 
                                     <div class="col-xs-12">
+                                    <p>(<span class="requis">*</span>) : Champ requis</p>
                                         <?php if($success == true): // La variable $success est envoyé via le controller?>
                                         <?php echo '<div class="alert alert-success">Le texte a été mis à jour.</div>'; ?>
                                         <?php endif; ?>
@@ -332,10 +333,10 @@
                                         <!-- Image -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Publier une image :</label>
+                                                <label>Publier une image : <span class="requis">*</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-                                                    <input type="file" class="form-control" name="picture">
+                                                    <input type="file" class="form-control" name="picture" required="">
                                                 </div>
                                             </div>
                                         </div>

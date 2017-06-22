@@ -74,6 +74,12 @@ select {
 .normalpara {
   width: 100% !important;
 }
+.partnerimg {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  max-height: 160px;
+  border-radius: 5px;
+}
 /*----------------------------------
     FORMS BOOTSTRAP 3.3.7
 ------------------------------------*/

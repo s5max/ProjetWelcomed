@@ -49,3 +49,14 @@
     if($hRespTwoT->execute()){$home_respTwoT = $hRespTwoT->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($hRespThree->execute()){$home_respThree = $hRespThree->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($hRespThreeT->execute()){$home_respThreeT = $hRespThreeT->fetch(PDO::FETCH_ASSOC);}else {die;}
+
+    /*INSERTION DES PUBLICITES DEPUIS LA BDD*/
+    $pubOne = $bdd->prepare('SELECT * FROM partnership WHERE partner_id = 1');
+    $pubTwo = $bdd->prepare('SELECT * FROM partnership WHERE partner_id = 2');
+    $pubThree = $bdd->prepare('SELECT * FROM partnership WHERE partner_id = 3');
+    $pubFour = $bdd->prepare('SELECT * FROM partnership WHERE partner_id = 4');
+
+    if($pubOne->execute()){$onePub = $pubOne->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($pubTwo->execute()){$twoPub = $pubTwo->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($pubThree->execute()){$threePub = $pubThree->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($pubFour->execute()){$fourPub = $pubFour->fetch(PDO::FETCH_ASSOC);}else {die;}
