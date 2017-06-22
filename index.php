@@ -483,7 +483,7 @@ require('include/home_edit.php');
 
                             <p align="justify"><?php echo $home_paraTwo['text_content']; ?></p>
 
-                            <?php echo $home_paraThree['text_content']; ?>
+                            <p align="justify"><?php echo $home_paraThree['text_content']; ?></p>
 
                         </div>
                         <!--/First column-->
@@ -527,8 +527,8 @@ require('include/home_edit.php');
                                 </div>
 
                                 <!--Content-->
-                                <h4>Antoine</h4>
-                                <p><i class="fa fa-quote-left"></i> Pourquoi passer par différentes plateformes pour chercher ou diffuser ces informations si tout est disponible ici</p>
+                                <h4><?php echo $home_respOne['text_content']; ?></h4>
+                                <p><i class="fa fa-quote-left"></i> <?php echo $home_respOneT['text_content']; ?></p>
                             </div>
                         </div>
                         <!--/First column-->
@@ -542,8 +542,8 @@ require('include/home_edit.php');
                                 </div>
 
                                 <!--Content-->
-                                <h4>Louise</h4>
-                                <p><i class="fa fa-quote-left"></i> Louer un appart' et une voiture, un mois en Martinique, ça peut revenir assez cher! Bénéficier des réductions de la Welcomed Community c'est top !</p>
+                                <h4><?php echo $home_respTwo['text_content']; ?></h4>
+                                <p><i class="fa fa-quote-left"></i> <?php echo $home_respTwoT['text_content']; ?></p>
                             </div>
                         </div>
                         <!--/Second column-->
@@ -556,8 +556,8 @@ require('include/home_edit.php');
                                     <img src="img/profile-woman.jpg" class="rounded-circle img-fluid">
                                 </div>
                                 <!--Content-->
-                                <h4>Charlotte</h4>
-                                <p><i class="fa fa-quote-left"></i> J'ai posté une offre de remplacement sur les réseaux sociaux mais je devais régulièrement "liker" le post pour qu'il soit bien vu... Avec Welcomed c'est plus simple.</p>
+                                <h4><?php echo $home_respThree['text_content']; ?></h4>
+                                <p><i class="fa fa-quote-left"></i> <?php echo $home_respThreeT['text_content']; ?></p>
 
                             </div>
                         </div>
