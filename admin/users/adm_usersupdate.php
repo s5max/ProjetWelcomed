@@ -212,7 +212,15 @@
                             <a href="../adm_partners.php"><i class="fa fa-handshake-o"></i> Partenariats</a>
                         </li>
                         <li>
-                            <a href="../adm_edit.php"><i class="fa fa-paint-brush"></i> Personnalisation</a>
+                            <a href="javascript:;" data-toggle="collapse" data-target="#edit"><i class="fa fa-paint-brush"></i> Personnalisation<i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul id="edit" class="collapse">
+                                <li>
+                                    <a href="../adm_edittext.php"><i class="fa fa-file-text"></i> Texte</a>
+                                </li>
+                                <li>
+                                    <a href="../adm_editpicture.php"><i class="fa fa-picture-o"></i> Images</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

@@ -3,25 +3,20 @@
     require('../include/log.php');
 
 
-    $imgU = []; // Contiendra les données épurées
+    $textU = []; // Contiendra les données épurées
     $errors = [];
     $success = false;
-    $maxSize = (1024 * 1000) * 4; // 1Ko => 1024 octets
-    $upload_dir = '../../img/';
-    $mimeTypeAvailable = ['image/png', 'image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif'];
-    $finfo = '';
-    $newName = "";
 
 
     if(isset($_GET['id']) && !empty($_GET['id'])){
 
-        $imgId = (int) $_GET['id'];
+        $textId = (int) $_GET['id'];
 
-        $updateImg = $bdd->prepare('SELECT * FROM pictures WHERE img_id = :imgId');
-        $updateImg->bindValue(':imgId', $imgId, PDO::PARAM_INT);
+        $updateText = $bdd->prepare('SELECT * FROM home_text WHERE text_id = :textId');
+        $updateText->bindValue(':textId', $textId, PDO::PARAM_INT);
 
-        if($updateImg->execute()){
-            $image = $updateImg->fetch(PDO::FETCH_ASSOC);
+        if($updateText->execute()){
+            $text = $updateText->fetch(PDO::FETCH_ASSOC);
 
         }
         else {
@@ -31,65 +26,43 @@
         }
     }
 
-        // Ici on traite l'upload d'image
-        if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){ // Permet de vérifier qu'un fichier est envoyé
+    if(isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])){
+    $idText = (int) $_GET['id'];
 
-        $finfo = new finfo();
-        $mimeType = $finfo->file($_FILES['picture']['tmp_name'], FILEINFO_MIME_TYPE);
+        // Soumission du formulaire
+        if(!empty($_POST)){
 
-        $extension = pathinfo($_FILES['picture']['name'], PATHINFO_EXTENSION);
+            // équivalent au foreach de nettoyage
+            $post = array_map('trim', array_map('strip_tags', $_POST)); 
 
-        // On vérifie que le type de fichier est un mime type valide
-        if(in_array($mimeType, $mimeTypeAvailable)){
-
-            // Vérification de la taille 
-            if($_FILES['picture']['size'] <= $maxSize){
-
-                if(!is_dir($upload_dir)){
-                    mkdir($upload_dir, 0755); // Créer le dossier
-                }
-
-                // Renomme le fichier
-                $newName = uniqid('img_').'.'.$extension;
-
-                if(!move_uploaded_file($_FILES['picture']['tmp_name'], $upload_dir.$newName)){
-                    $errors[] = 'Error during picture\'s upload  !';
-                } else {
-
-                    if(count($errors) === 0){
-
-                        $update = $bdd->prepare('UPDATE pictures SET img_url = :img_url WHERE img_id = :id');
-                        $update->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
-                        $update->bindValue(':img_url', $newName);
-
-
-                        if($update->execute()){
-                            $success = true;
-                        } else {
-                            var_dump($update->errorInfo());
-                        }
-                    } else {
-                        $textErrors = implode('<br>', $errors);
-                    }
-                }
-            // endif $_GET['id']
-
-
-
-
-
+            if(strlen($post['text_content']) < 3) {
+                $errors[] = "Le champ doit contenir au minimum 2 caractères";
             }
-            else {
-                    $errors[] = 'L\'image excède 2 Mo !';
+
+            if(count($errors) === 0)
+            {
+
+                $update = $bdd->prepare('UPDATE home_text SET text_content = :text_content WHERE text_id = :text_id');
+
+                $update->bindValue(':text_id', $idText, PDO::PARAM_INT);
+                $update->bindValue(':text_content', $post['text_content']);
+
+                if($update->execute())
+                {
+                    $success = 'Félicitations le texte a été modifié';
+                }
+                else
+                {
+                    var_dump($update->errorInfo());
                 }
             }
-            else {
-                $errors[] = 'L\'image n\'est pas valide !';
+            else
+            {
+                $textErrors = implode('<br>', $errors);
             }
+
         }
-        else {
-            $newName = $image['img_url'];
-        }
+    }
 
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -203,21 +176,13 @@
                     </div>
                     <!-- /.row -->
 
-                    <div class="col-xs-12">
-                        <?php if($success == true): // La variable $success est envoyé via le controller?>
-                        <?php echo '<div class="alert alert-success">Le compte a été mis à jour.</div>'; ?>
-                        <?php endif; ?>
-
-                        <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-                        <?php echo '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>'; ?>
-                        <?php endif; ?>
-                    </div>
+                    
 
                             <div class="col-md-6 col-xs-12">
                                 <div class="col-md-12 panel panel-default r-p">
 
                                 <div class="panel-heading">
-                                    <h1 class="panel-title"><i class="fa fa-info-circle fa-fw"></i> Détail de l'image</h1>
+                                    <h1 class="panel-title"><i class="fa fa-info-circle fa-fw"></i> Détail du texte</h1>
                                 </div>
                                 <div>
                                     <form class="form-horizontal col-sm-12 uppicture" method="post" enctype="multipart/form-data">
@@ -227,8 +192,8 @@
                                             <div class="col-xs-12">
                                                 <label>Titre :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" name="title" value="<?=$image['title']; ?>" disabled>
+                                                    <span class="input-group-addon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" value="<?=$text['text_title']; ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -236,10 +201,10 @@
                                         <!-- Taille -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Taille Recommandée :</label>
+                                                <label>Description :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-address-card" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" name="img_size" value="<?=$image['img_size']; ?>" disabled>
+                                                    <span class="input-group-addon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" value="<?=$text['text_description']; ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -247,10 +212,10 @@
                                         <!-- Description -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Description :</label>
+                                                <label>Texte Actuel :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" name="description" value="<?=$image['description']; ?>" disabled>
+                                                    <span class="input-group-addon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
+                                                    <textarea rows="5" type="text" class="form-control" disabled><?=$text['text_content']; ?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -266,19 +231,25 @@
                                     <h1 class="panel-title"><i class="fa fa-refresh"></i> Mettre à jour</h1>
                                 </div>
 
-                                    <div class="admpicupdate">
-                                        <?php echo '<img src="../../img/'.$image['img_url'].'" class="img-responsive"'; ?>
-                                    </div>
-
                                     <form class="form-horizontal col-sm-12 uppicture" method="post" enctype="multipart/form-data">
+                                    
+                                        <div class="col-xs-12">
+                                            <?php if($success == true): // La variable $success est envoyé via le controller?>
+                                            <?php echo '<div class="alert alert-success">Le texte a été mis à jour.</div>'; ?>
+                                            <?php endif; ?>
+
+                                            <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
+                                            <?php echo '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>'; ?>
+                                            <?php endif; ?>
+                                        </div>
 
                                         <!-- Image -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Image :</label>
+                                                <label>Nouveau Texte :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input type="file" class="form-control" name="picture" value="<?=$image['img_url']; ?>">
+                                                    <span class="input-group-addon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
+                                                    <textarea type="text" rows="5" class="form-control" name="text_content"></textarea>
                                                 </div>
                                             </div>
                                         </div>

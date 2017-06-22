@@ -2,10 +2,10 @@
 
 	session_name('wmd');
 	session_start();
-	$r = '/git/ProjetWelcomed/';
-	$m = '/git/ProjetWelcomed/modal/';
-	//$r = '/Home/ProjetWelcomed/';
-	//$m = '/Home/ProjetWelcomed/modal';
+	/*$r = '/git/ProjetWelcomed/';*/
+	/*$m = '/git/ProjetWelcomed/modal/';*/
+	$r = '/Home/ProjetWelcomed/';
+	$m = '/Home/ProjetWelcomed/modal';
 	
 $s = $_SERVER['PHP_SELF'];
 $t = $r.'account.php';
