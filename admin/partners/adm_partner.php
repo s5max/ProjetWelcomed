@@ -3,65 +3,26 @@
     require('../include/log.php');
 
 
-    $textU = []; // Contiendra les données épurées
+    $partnerU = []; // Contiendra les données épurées
     $errors = [];
     $success = false;
 
 
     if(isset($_GET['id']) && !empty($_GET['id'])){
 
-        $textId = (int) $_GET['id'];
+        $partnerId = (int) $_GET['id'];
 
-        $updateText = $bdd->prepare('SELECT * FROM home_text WHERE text_id = :textId');
-        $updateText->bindValue(':textId', $textId, PDO::PARAM_INT);
+        $updateText = $bdd->prepare('SELECT * FROM partnership WHERE partner_id = :partnerId');
+        $updateText->bindValue(':partnerId', $partnerId, PDO::PARAM_INT);
 
         if($updateText->execute()){
-            $text = $updateText->fetch(PDO::FETCH_ASSOC);
+            $partner = $updateText->fetch(PDO::FETCH_ASSOC);
 
         }
         else {
             // Erreur de développement
             var_dump($image->errorInfo());
             die; // alias de exit(); => die('Hello world');
-        }
-    }
-
-    if(isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id'])){
-    $idText = (int) $_GET['id'];
-
-        // Soumission du formulaire
-        if(!empty($_POST)){
-
-            // équivalent au foreach de nettoyage
-            $post = array_map('trim', array_map('strip_tags', $_POST)); 
-
-            if(strlen($post['text_content']) < 0) {
-                $errors[] = "Le champ doit contenir au minimum 2 caractères";
-            }
-
-            if(count($errors) === 0)
-            {
-
-                $update = $bdd->prepare('UPDATE home_text SET text_content = :text_content WHERE text_id = :text_id');
-
-                $update->bindValue(':text_id', $idText, PDO::PARAM_INT);
-                $update->bindValue(':text_content', $post['text_content']);
-
-                if($update->execute())
-                {
-                    $success = 'Félicitations le texte a été modifié';
-                    header("refresh:3");
-                }
-                else
-                {
-                    var_dump($update->errorInfo());
-                }
-            }
-            else
-            {
-                $textErrors = implode('<br>', $errors);
-            }
-
         }
     }
 
@@ -139,10 +100,10 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="../adm_partners.php"><i class="fa fa-handshake-o"></i> Partenariats</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#edit"><i class="fa fa-paint-brush"></i> Personnalisation<i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="edit" class="collapse">
                                 <li>
@@ -170,7 +131,7 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li class="active">
-                                    <i class="fa fa-dashboard"> Mettre à jour l'image</i> 
+                                    <i class="fa fa-dashboard"> Edition de publicité</i> 
                                 </li>
                             </ol>
                         </div>
@@ -183,7 +144,7 @@
                                 <div class="col-md-12 panel panel-default r-p">
 
                                 <div class="panel-heading">
-                                    <h1 class="panel-title"><i class="fa fa-info-circle fa-fw"></i> Détail du texte</h1>
+                                    <h1 class="panel-title"><i class="fa fa-info-circle fa-fw"></i> <?php echo $partner['name']; ?></h1>
                                 </div>
                                 <div>
                                     <form class="form-horizontal col-sm-12 uppicture" method="post" enctype="multipart/form-data">
@@ -191,21 +152,21 @@
                                         <!-- Titre -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Titre :</label>
+                                                <label>Partenaire :</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-tag" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" value="<?=$text['text_title']; ?>" disabled>
+                                                    <input type="text" class="form-control" value="<?=$partner['partner']; ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Taille -->
+                                        <!-- Lien -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Description :</label>
+                                                <label>Lien :</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" value="<?=$text['text_description']; ?>" disabled>
+                                                    <input type="text" class="form-control" value="<?=$partner['partner_link']; ?>" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,10 +174,20 @@
                                         <!-- Description -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Texte Actuel :</label>
+                                                <label>Description :</label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
-                                                    <textarea rows="5" type="text" class="form-control" disabled><?=$text['text_content']; ?></textarea>
+                                                    <textarea rows="5" type="text" class="form-control" disabled><?=$partner['description']; ?></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Image -->
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label>Image :</label>
+                                                <div class="admpicupdate">
+                                                    <?php echo '<img src="../../img/'.$partner['partner_picture'].'" class="img-responsive">'; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,24 +204,47 @@
                                 </div>
 
                                     <form class="form-horizontal col-sm-12 uppicture" method="post" enctype="multipart/form-data">
-                                    
-                                        <div class="col-xs-12">
-                                            <?php if($success == true): // La variable $success est envoyé via le controller?>
-                                            <?php echo '<div class="alert alert-success">Le texte a été mis à jour.</div>'; ?>
-                                            <?php endif; ?>
 
-                                            <?php if(!empty($errors)): // La variable $errors est envoyé via le controller?>
-                                            <?php echo '<div class="alert alert-danger">'.implode('<br>', $errors).'</div>'; ?>
-                                            <?php endif; ?>
+                                        <!-- Titre -->
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label>Partenaire :</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="partner" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Lien -->
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label>Lien :</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-commenting" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" name="partner_link">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Description -->
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <label>Description :</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
+                                                    <textarea rows="5" type="text" class="form-control" name="description"></textarea>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <!-- Image -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <label>Nouveau Texte :</label>
+                                                <label>Image :</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-addon"><i class="fa fa-file-text" aria-hidden="true"></i></span>
-                                                    <textarea type="text" rows="5" class="form-control" name="text_content"></textarea>
+                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <input type="file" class="form-control" name="partner_picture">
                                                 </div>
                                             </div>
                                         </div>

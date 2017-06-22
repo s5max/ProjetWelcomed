@@ -147,7 +147,7 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="../home.php"><i class="fa fa-fw fa-dashboard"></i> Panneau D'Administration</a>
+                            <a href="../"><i class="fa fa-fw fa-dashboard"></i> Panneau D'Administration</a>
                         </li>
                         <li>
                             <a href="../adm_users.php"><i class="fa fa-fw fa-user"></i> Utilisateurs</a>
@@ -268,7 +268,7 @@
                                 </div>
 
                                     <div class="admpicupdate">
-                                        <?php echo '<img src="../../img/'.$image['img_url'].'" class="img-responsive"'; ?>
+                                        <?php echo '<img src="../../img/'.$image['img_url'].'" class="img-responsive">'; ?>
                                     </div>
 
                                     <form class="form-horizontal col-sm-12 uppicture" method="post" enctype="multipart/form-data">
