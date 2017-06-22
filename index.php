@@ -11,26 +11,6 @@ $r = '/git/ProjetWelcomed/';*/
 require('include/connect.php');
 require('include/home_edit.php');
 
-/*INSERTION DES IMAGES DEPUIS LA BDD*/
-/*    $backOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 1');
-    $backTwo = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 2');
-    $picOne = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 3');
-    $picTwo = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 4');
-    $picThree = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 5');
-    $picFour = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 6');
-    $picFive = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 7');
-    $picSix = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 8');
-    $picWC = $bdd->prepare('SELECT * FROM pictures WHERE img_id = 9');
-
-    if($backOne->execute()){$imgOne = $backOne->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($backTwo->execute()){$imgTwo = $backTwo->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picOne->execute()){$minOne = $picOne->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picTwo->execute()){$minTwo = $picTwo->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picThree->execute()){$minThree = $picThree->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picFour->execute()){$minFour = $picFour->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picFive->execute()){$minFive = $picFive->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picSix->execute()){$minSix = $picSix->fetch(PDO::FETCH_ASSOC);}else {die;}
-    if($picWC->execute()){$minWC = $picWC->fetch(PDO::FETCH_ASSOC);}else {die;}*/
 
 ?>
 
@@ -196,7 +176,7 @@ require('include/home_edit.php');
                                             </div>
                                         </div>
                                     </div>
-                                    <h2 class="font-up white-text mb-2 hwelcomed">Une expérience libérale sous le Soleil de Martinique</h2>
+                                    <h2 class="font-up white-text mb-2 hwelcomed"><?php echo $home_slogan['text_content']; ?></h2>
                                     
                                     <?php if(!isset($_SESSION['user'])){?>
                                     <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>
@@ -468,7 +448,7 @@ require('include/home_edit.php');
                             <!--First row-->
                             <div class="row text-white flex-center text-center mt-1 wow fadeIn" data-wow-delay="0.4s">
                             <hr class="hr-light w-100">
-                                <h1 class="brand-name font-up">Welcomed Community</h1>
+                                <h1 class="brand-name font-up"><?php echo $home_titleTwo['text_content']; ?></h1>
                                 <hr class="hr-light w-100">
                                 <h2 class="font-up pt-1"><strong>...</strong></h2>
                             </div>
@@ -487,7 +467,7 @@ require('include/home_edit.php');
                 <section class="section about mb-4"> 
 
                     <!--Secion heading-->
-                    <h1 class="text-center font-up font-bold mt-1 wow fadeIn" data-wow-delay="0.2s">Qu'Est-ce que la Welcomed Community</h1>
+                    <h1 class="text-center font-up font-bold mt-1 wow fadeIn" data-wow-delay="0.2s"><?php echo $home_titleTwoD['text_content']; ?></h1>
 
                     <!--Section description-->
                     <p class="text-center font-up font-bold mb-4 wow fadeIn" data-wow-delay="0.2s">...</p>
@@ -499,15 +479,11 @@ require('include/home_edit.php');
                         <div class="col-xl-5 col-lg-6 pb-1 wow fadeIn" data-wow-delay="0.4s">
 
                             <!--Description-->
-                            <p align="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo animi soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus voluptatum, magni impedit eaque animi maxime.</p>
+                            <p align="justify"><?php echo $home_paraOne['text_content']; ?></p>
 
-                            <p align="justify">Nemo animi soluta ratione quisquam, dicta ab cupiditate iure eaque? Repellendus voluptatum, magni impedit eaque delectus, beatae maxime temporibus maiores quibusdam quasi rem magnam ad perferendis iusto sint tempora.</p>
+                            <p align="justify"><?php echo $home_paraTwo['text_content']; ?></p>
 
-                            <ul>
-                                <li>Nemo animi soluta ratione</li>
-                                <li>Beatae maxime temporibus</li>
-                                <li>Consectetur adipisicing elit</li>
-                            </ul>
+                            <?php echo $home_paraThree['text_content']; ?>
 
                         </div>
                         <!--/First column-->

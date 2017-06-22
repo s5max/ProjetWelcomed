@@ -35,7 +35,7 @@
             // équivalent au foreach de nettoyage
             $post = array_map('trim', array_map('strip_tags', $_POST)); 
 
-            if(strlen($post['text_content']) < 3) {
+            if(strlen($post['text_content']) < 0) {
                 $errors[] = "Le champ doit contenir au minimum 2 caractères";
             }
 
@@ -50,6 +50,7 @@
                 if($update->execute())
                 {
                     $success = 'Félicitations le texte a été modifié';
+                    header("refresh:3");
                 }
                 else
                 {

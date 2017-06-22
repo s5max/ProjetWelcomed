@@ -65,6 +65,7 @@
 
                         if($update->execute()){
                             $success = true;
+                            header("refresh:3");
                         } else {
                             var_dump($update->errorInfo());
                         }
