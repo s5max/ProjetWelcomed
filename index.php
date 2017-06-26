@@ -436,9 +436,9 @@ require('include/home_edit.php');
                         <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
                         <div class="row text-center">
                             <?php if(!empty($onePub['partner']) && empty($twoPub['partner'])):?>
-                                <?php echo '<div class="col-xs-12"><a href="'.$onePub['partner_link'].'"><img src="img/'.$onePub['partner_picture'].'" class="img-responsive partnerimg"></a></div>'; ?>
+                                <?php echo '<div class="col-xs-12"><a href="'.$onePub['partner_link'].'"><img src="img/'.$onePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$onePub['description'].'</p></a></div>'; ?>
                                 <?php elseif(empty($onePub['partner']) && !empty($twoPub['partner'])) :?>
-                                    <?php echo '<div class="col-xs-12"><img src="img/'.$twoPub['partner_picture'].'" class="img-responsive partnerimg"></div>'; ?>
+                                    <?php echo '<div class="col-xs-12"><a href="'.$twoPub['partner_link'].'"><img src="img/'.$twoPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$twoPub['description'].'</p></a></div>'; ?>
                                     <?php elseif(!empty($onePub['partner']) && !empty($twoPub['partner'])) :?>
                                         <?php echo '<div class="col-xs-6"><a href="'.$onePub['partner_link'].'"><img src="img/'.$onePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$onePub['description'].'</p></a></div><div class="col-xs-6"><a href="'.$twoPub['partner_link'].'"><img src="img/'.$twoPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$twoPub['description'].'</p></a></div>'; ?>
                             <?php endif; ?>
@@ -519,9 +519,9 @@ require('include/home_edit.php');
                         <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
                         <div class="row text-center">
                             <?php if(!empty($threePub['partner']) && empty($fourPub['partner'])):?>
-                                <?php echo '<div class="col-xs-12"><a href="'.$threePub['partner_link'].'"><img src="img/'.$threePub['partner_picture'].'" class="img-responsive partnerimg"></a></div>'; ?>
+                                <?php echo '<div class="col-xs-12"><a href="'.$threePub['partner_link'].'"><img src="img/'.$threePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$threePub['description'].'</p></a></div>'; ?>
                                 <?php elseif(empty($threePub['partner']) && !empty($fourPub['partner'])) :?>
-                                    <?php echo '<div class="col-xs-12"><img src="img/'.$fourPub['partner_picture'].'" class="img-responsive partnerimg"></div>'; ?>
+                                    <?php echo '<div class="col-xs-12"><a href="'.$fourPub['partner_link'].'"><img src="img/'.$fourPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$fourPub['description'].'</p></a></div>'; ?>
                                     <?php elseif(!empty($threePub['partner']) && !empty($fourPub['partner'])) :?>
                                         <?php echo '<div class="col-xs-6"><a href="'.$threePub['partner_link'].'"><img src="img/'.$threePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$threePub['description'].'</p></a></div><div class="col-xs-6"><a href="'.$fourPub['partner_link'].'"><img src="img/'.$fourPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$fourPub['description'].'</p></a></div>'; ?>
                             <?php endif; ?>

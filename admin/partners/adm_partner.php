@@ -44,6 +44,10 @@
                 $errors[] = "Veuillez renseigner le nom du partenaire !";
             }
 
+            if(strlen($post['description']) > 100) {
+                $errors[] = "La description doit contenir 100 caractères maximum !";
+            }
+
             // Ici on traite l'upload d'image
             if(isset($_FILES['picture']) && $_FILES['picture']['error'] === 0){ // Permet de vérifier qu'un fichier est envoyé
 

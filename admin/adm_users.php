@@ -104,7 +104,6 @@
                                         <a href="users/adm_usersupdate.php?id=<?=$user['id']; ?>"><i class="fa fa-refresh" aria-hidden="true"></i></a>
                                     </td>
                                     <td>
-                                        <!-- view_menu.php?id=6 -->
                                         <a href="users/adm_userdelete.php?id=<?=$user['id']; ?>" id="deleteb"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
