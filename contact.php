@@ -6,7 +6,6 @@
     $contact =[]; // Contiendra les données du formulaire nettoyées
     $errors =[]; // Contiendra les éventuelles erreurs
     $display = true;
-    $password = '';
 
     if(!empty($_POST)){
 
@@ -167,7 +166,7 @@
                                     </div>
 
 
-                                    <iframe class="col-lg-6" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15442.480820502418!2d-61.0343062!3d14.6206985!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4905ada70da911c0!2sPiment+Sucr%C3%A9!5e0!3m2!1sfr!2s!4v1496434529644" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    <iframe class="col-lg-6" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.528101638522!2d-61.05772018553596!3d14.62593748978632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c6aa6c82cb9bb35%3A0xdb9ab14cd7da35c8!2sRoute+de+L+Entraide%2C+Fort-de-France%2C+Martinique!5e0!3m2!1sfr!2sfr!4v1498548177482" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
                                 </div>
 
