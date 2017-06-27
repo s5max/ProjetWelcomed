@@ -10,30 +10,14 @@
                     <!--First column-->
                     <div class="col-xl-4 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
 
-
-<!--
-                        <a class="btn btn-lg btn-rounded btn-primary" data-url="<?= $m ?>subscribe.php" data-toggle="modal" data-target="#modal4all">Inscription</a>
-
-                        <a class="btn btn-lg btn-rounded btn-primary" data-toggle="modal" data-target="#modal-subscribe">Inscription</a>
-
-                        
--->
-                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
-
                         <!--About-->
                         <h5 class="title mb-1 normaltitlefoot"><strong>A PROPOS DE NOUS</strong></h5>
-
-
-<!--                         <h5 class="title mb-1"><strong>A PROPOS DE NOUS</strong></h5>
- -->
 
                         <p><a href="contact.php">Contact</a></p>
 
                         <p class="mb-1-half"><a href="legal.php">Mentions Légales</a></p>
 
                         <!--/About -->
-
-                    
                     </div>
                     <!--/First column-->
 
@@ -41,14 +25,6 @@
 
                     <!--Second column-->
                     <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
-
-                        <div class="footer-socials">
-
-                            <!--Facebook-->
-                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-facebook"></i></a> Facebook/...
-
-                        </div>
-                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
                         <!--Info-->
                         <p><i class="fa fa-home mr-3"></i> Route de l'entraide</p>
                         <p><i class="fa fa-home mr-3"></i> 97200 Fort-de-France</p>
@@ -60,28 +36,14 @@
                     <hr class="w-100 hidden-md-up">
 
                     <!--First column-->
-                    <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6 t-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="col-xl-4 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
 
-                        <!--Title-->
-<!--                        <h5 class="title mb-2 normaltitlefoot"><strong>Dernières recherches</strong></h5>-->
+                        <div class="footer-socials">
 
-                        <!--Opening hours table-->
-<!--
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>Médecins</td>
-                                </tr>
-                                <tr>
-                                    <td>Chirurgiens-dentistes</td>
-                                </tr>
-                                <tr>
-                                    <td>Orthophonistes</td>
-                                </tr>
-                            </tbody>
-                        </table>
--->
+                            <!--Facebook-->
+                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-facebook"></i></a> Facebook/...
 
+                        </div>
                     </div>
                     <!--/First column-->
 

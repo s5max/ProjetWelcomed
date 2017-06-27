@@ -2,6 +2,7 @@
 
     require('include/connect.php');
     require('include/xheader.php');
+    
     $contact =[]; // Contiendra les données du formulaire nettoyées
     $errors =[]; // Contiendra les éventuelles erreurs
     $display = true;
@@ -59,9 +60,8 @@
     }
 
 ?>
+        
 
-
-    
 
         <!--Main content-->
         <main class=" normalsection">

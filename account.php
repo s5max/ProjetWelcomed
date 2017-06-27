@@ -1,52 +1,51 @@
 <?php
 
-//if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
-//
-//       $idUser = (int) $_SESSION['user']['id'];
-//
-//       // Jointure SQL permettant de récupérer la recette & le prénom & nom de l'utilisateur l'ayant publié
-//       $selectOne = $bdd->prepare('SELECT u.* FROM user AS u WHERE id = :id');
-//       $selectOne->bindValue(':id', $idUser, PDO::PARAM_INT);
-//       if($selectOne->execute()){
-//           $user = $selectOne->fetch(PDO::FETCH_ASSOC);
-//       }
-//       else {
-//           // Erreur de développement
-//           var_dump($selectOne->errorInfo());
-//           die; // alias de exit(); => die('Hello world');
-//       }
-//   }
-//	else{
-//		header('location:./');
-//	}
-
     require('include/connect.php');
     require('include/xheader.php');
 
+if(isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])){
 
-	$select = $bdd->prepare('SELECT * FROM profession');
+      $idUser = (int) $_SESSION['user']['id'];
 
-	if($select->execute()){
-
-		$professionAvailable = $select->fetchAll(PDO::FETCH_ASSOC);
-
+      // Jointure SQL permettant de récupérer la recette & le prénom & nom de l'utilisateur l'ayant publié
+      $selectOne = $bdd->prepare('SELECT u.* FROM user AS u WHERE id = :id');
+      $selectOne->bindValue(':id', $idUser, PDO::PARAM_INT);
+      if($selectOne->execute()){
+          $user = $selectOne->fetch(PDO::FETCH_ASSOC);
+      }
+      else {
+          // Erreur de développement
+          var_dump($selectOne->errorInfo());
+          die; // alias de exit(); => die('Hello world');
+      }
+  }
+	else{
+		header('location:./');
 	}
 
-	$select = $bdd->prepare('SELECT * FROM offer');
+    $select = $bdd->prepare('SELECT * FROM profession');
 
-	if($select->execute()){
+    if($select->execute()){
 
-		$offerAvailable = $select->fetchAll(PDO::FETCH_ASSOC);
+        $professionAvailable = $select->fetchAll(PDO::FETCH_ASSOC);
 
-		$offer = [];
-		$demand = [];
-		foreach($offerAvailable as $value){
-			if($value['id']<5){
-				$offer[] = [$value['id'],$value['type']];
-			}
-			elseif($value['id']>4){
-				$demand[] = [$value['id'],$value['type']];
-			}
+    }
+
+    $select = $bdd->prepare('SELECT * FROM offer');
+
+    if($select->execute()){
+
+        $offerAvailable = $select->fetchAll(PDO::FETCH_ASSOC);
+
+        $offer = [];
+        $demand = [];
+        foreach($offerAvailable as $value){
+            if($value['id']<5){
+                $offer[] = [$value['id'],$value['type']];
+            }
+            elseif($value['id']>4){
+                $demand[] = [$value['id'],$value['type']];
+            }
 		}
 		
 	}
