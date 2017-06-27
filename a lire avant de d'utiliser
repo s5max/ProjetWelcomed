@@ -1,0 +1,26 @@
+La deconnexion dans la page account devra renvoyer vers l'accueil
+
+'ajout du cv n'est pas encore au point
+
+envisager la possibilité de réinitialiser à null un filtre de recherche pendant la recherche
+
+Déclarer la variable $m pour spécifier le chemin des modals (pour que les chemins soient retrouvés quand on change de serveur)
+
+index.php refresh/home.php refresh/navbar.php ajax/search_result.php
+
+
+chemin $r dans header, login, logout
+
+changer la valeur de la variable loc dans le javascript
+Changer le chemin dans la variable javascript search dans la page search.php
+
+
+Centrer les ancres de la navbar
+
+Faire une animation pour 'Vous devez remplir les champs obligatoires(*)'.Pour qu'on ait pas l'impression que c'est le même texte qui est resté affiché alors qu'il a été rafraichi
+
+
+Quand les offres payantes seront disponibles, renseigner les attributs data-url des liens pour y accéder
+Ajouter une colonne pour identifier l'offre choisi
+Ajouter $_SESSION['post']['option'] pour spécifier l'offre choisi
+
