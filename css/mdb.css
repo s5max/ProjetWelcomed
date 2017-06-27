@@ -6292,7 +6292,7 @@ i.btn-danger {
     .navbar.navbar-dark .navbar-brand:hover {
       color: #fff; }
   .navbar.navbar-dark .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#000' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     cursor: pointer; }
   /*.navbar.navbar-dark .breadcrumb a,
   .navbar.navbar-dark .navbar-nav .nav-item a {
@@ -12442,7 +12442,8 @@ a.pswp__share--download:hover {
 
 @media (max-width: 768px) {
   .cafe-lp.cyan-skin.intro-page .navbar:not(.top-nav-collapse) {
-    background: #4c4971 !important; } }
+    background: #fff !important;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);  } }
 
 .cafe-lp .top-nav-collapse {
   background-color: #fff;
