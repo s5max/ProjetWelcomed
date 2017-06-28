@@ -107,15 +107,6 @@ $c = $r.'contact.php';
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php" data-offset="100">Contactez-nous</a>
                             </li>
-
-                            <?php if(isset($_SESSION['user'])){?>
-
-<!--
-                            <li class="nav-item">
-                                <a class="nav-link" href="#products" data-offset="100">Publier une annonce</a>
-                            </li>
--->
-                            <?php } ?>
                             <li class="nav-item">
                                 <?php if(isset($_SESSION['user'])){echo '<a class="nav-link" href="account.php">Mon Compte</a>';}?>
                             </li>

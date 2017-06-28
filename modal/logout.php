@@ -21,12 +21,8 @@ session_destroy();
 	<div class="modal-body" id="modal-logout-content">
 
 		<div class="text-center">
+		
 			<p>Vous êtes maintenant Déconnecté(e)</p>
-<!--
-			<button id="logout_yes" class="btn btn-lg btn-rounded btn-primary">Se Deconnecter</button>
-			<button class="btn btn-lg btn-rounded btn-primary" data-dismiss="modal">Rester Connecter</button>
--->
-
 
 		</div>
 	</div>
@@ -44,7 +40,7 @@ session_destroy();
 				$.ajax({type:'post',url:'index.php'}).done(function(o){$('body').html(o);});
 			}
 	
-	$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navrefresh').html(o);});
+	$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navbarNav').html(o);});
 	$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
 
 </script>	
