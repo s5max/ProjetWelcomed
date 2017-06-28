@@ -18,7 +18,7 @@ session_destroy();
 		<h4 class="modal-title w-100">Se Déconnecter</h4>
 	</div>
 	<!--Body-->
-	<div class="modal-body" id="modal-logout-content">
+	<div class="modal-body">
 
 		<div class="text-center">
 		
