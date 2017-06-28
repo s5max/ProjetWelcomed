@@ -2,6 +2,7 @@
 
 session_name('wmd');session_start();
 require('../include/connect.php');
+
 $empty = true;
 
 if(!empty($_POST)){
@@ -140,7 +141,7 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 
 <!--Header-->
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	<button type="button" class="close destroy" data-dismiss="modal" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
 	</button>
 	<h4 class="modal-title w-100">Publier une annonce : Etape 3/3</h4>
@@ -252,7 +253,7 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 		<?php 	} ?>
 
 		<div class="md-form">
-			<textarea name="content" id="content" cols="30" rows="5" class="form-control"><?php if(isset($empty)){echo '</textarea>';}else{if(!isset($error['content'])){echo $post['content'];}} ?></textarea>
+			<textarea name="content" id="content" cols="30" class="rounded"><?php if(isset($empty)){echo '</textarea>';}else{if(!isset($error['content'])){echo $post['content'];}} ?></textarea>
 			<label for="content">Contenu de l'annonce</label>
 			<?php if(isset($error['content'])){echo $error['content'];} ?>
 		</div>
@@ -277,7 +278,7 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 
 <!--Footer-->
 <div class="modal-footer">
-	<button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Fermer *</button>
+	<button type="button" class="btn btn-rounded btn-default destroy" data-dismiss="modal">Fermer *</button>
 </div>
 	<p class="note pad-right">* Les informations ne seront pas enregistrées si vous fermez la page</p>
 	
@@ -351,6 +352,18 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 
 			});
 
+	});
+	
+	
+	$('.destroy').on('click', function(e){
+		
+		url = 'ajax/destroy_post.php';
+		
+		$.ajax({
+			type	: 'post',
+			url		: url
+		});
+		
 	});
 
 

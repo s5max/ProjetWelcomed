@@ -7,7 +7,7 @@ session_name('wmd');session_start();
 
 <!--Header-->
 <div class="modal-header">
-	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	<button type="button" class="close destroy" data-dismiss="modal" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
 	</button>
 	<h4 class="modal-title w-100">Choisissez votre formule de publication (2/3)</h4>
@@ -40,7 +40,7 @@ session_name('wmd');session_start();
 </div>
 <!--Footer-->
 <div class="modal-footer">
-	<button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Fermer </button>
+	<button type="button" class="btn btn-rounded btn-default destroy" data-dismiss="modal">Fermer </button>
 </div>
 	
 	
@@ -64,6 +64,17 @@ session_name('wmd');session_start();
 				$('#ajax').html(o);
 				
 			}
+		});
+		
+	});
+	
+	$('.destroy').on('click', function(e){
+		
+		url = 'ajax/destroy_post.php';
+		
+		$.ajax({
+			type	: 'post',
+			url		: url
 		});
 		
 	});

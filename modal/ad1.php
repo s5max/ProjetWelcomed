@@ -72,7 +72,7 @@ if(!empty($_POST)){
         
 	
 	//Date début et fin
-        if(!empty($post['date_end'])){
+        if(!empty($post['date_start'])){
 		if(!preg_match('#^[0-9]{2}/[0-9]{2}/[0-9]{4}$#',$post['date_start'])){
             
             $error['date_start'] = '<p class="error">La date doit être écrite comme dans l\'exemple suivant : 01/03/2017</p>';
@@ -170,7 +170,7 @@ if(!empty($_POST)){
 				}
 				else{
 
-					if(!isset($error['date'])){
+					if(!isset($error['date_start'])){
 						echo'value="'.$post['date_start'].'" disabled>';
 					}
 					else{
