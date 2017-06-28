@@ -2,8 +2,7 @@
 
 	session_name('wmd');session_start();
 
-//	$m = '/Home/ProjetWelcomed/modal/';
-	$m = '/git/ProjetWelcomed/modal/';
+require('../include/route.php');
 
 	if(!empty($_POST)){
 		
