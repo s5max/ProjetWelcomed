@@ -2,9 +2,7 @@
 
 session_name('wmd');session_start();
 require('../include/connect.php');
-
-//$r = '/Home/ProjetWelcomed/';
-$r = '/git/ProjetWelcomed/';
+require('../include/route.php');
 
 $select = $bdd->prepare('SELECT * FROM profession');
 

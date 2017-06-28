@@ -1,12 +1,10 @@
-<?php session_name('wmd'); session_start();
+<?php 
 
-/*$m = '/git/ProjetWelcomed/modal/';
-$r = '/git/ProjetWelcomed/';*/
+session_name('wmd'); session_start();
 
-$m = '/Home/ProjetWelcomedLast/modal/';
-$r = '/Home/ProjetWelcomedLast/';
+require('../include/route.php');
+
 ?>
-
 
 <div class="hm-black-strong-1">
 	<div class="full-bg-img flex-center">

@@ -1,8 +1,8 @@
-	<?php
+<?php
 
-session_name('wmd');
-session_start();
-$r = '/git/ProjetWelcomed/';
+session_name('wmd');session_start();
+
+require('../include/route.php');
 
 unset($_SESSION['user']);
 
