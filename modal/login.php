@@ -45,7 +45,7 @@ if(!empty($_POST)){
 					$_SESSION['user']['email'] = $user['email'];
 					$_SESSION['user']['wm_role'] = $user['wm_role'];
 
-					$done = '<h4 id="state" data-state="on">Vous êtes maintenant connecté à votre compte!</h4><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>';
+					$done = '<h4 id="state" data-state="on">Vous êtes maintenant connecté à votre compte!</h4><button type="button" class="btn wmregister" data-dismiss="modal">Reprendre là où j\'en étais</button><a href="'.$r.'account.php" target="_self" class="btn wmregister">Accéder à mon Compte</a>';
 
 				}
 				else{
