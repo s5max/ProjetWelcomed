@@ -31,16 +31,16 @@ if(!empty($_POST)){
 		$empty = null;
 	
 	if(strlen($post['firstname']) < 3 || strlen($post['firstname']) > 64){
-		$error['firstname'] = '<p class="error">oulala,</p>';
+		$error['firstname'] = '<p class="error">oulala, il faut entre 3 et 64 caractères pour ce champ</p>';
 		
 	}
 	
-	if(strlen($post['lastname']) < 3 || strlen($post['lastname']) > 255){
-		$error['lastname'] = '<p class="error">oulala,</p>';
+	if(strlen($post['lastname']) < 3 || strlen($post['lastname']) > 64){
+		$error['lastname'] = '<p class="error">oulala, il faut entre 3 et 64 caractères pour ce champ</p>';
 	}
 	
 	if(!filter_var($post['email'],FILTER_VALIDATE_EMAIL)){
-		$error['email'] = '<p class="error">oulala,</p>';
+		$error['email'] = '<p class="error">oulala,c\'est pas une adresse email ça! </p>';
 	}
 	else{
 		
@@ -52,13 +52,13 @@ if(!empty($_POST)){
 		$email = $select->fetch(PDO::FETCH_ASSOC);
 
 		if($email['email']){
-			$error['email'] = '<p class="error">oulala,</p>';
+			$error['email'] = '<p class="error">Holala, nous avons déjà un utilisateur pour cette adresse email!</p>';
 		}
 	}
 	
 	if(strlen($post['password']) < 6){
             
-			$error['password'] = '<p class="error">popopop,</p>';
+			$error['password'] = '<p class="error">popopop, ici, c\'est 6 caractères</p>';
         }
         else{
             
@@ -93,7 +93,6 @@ if(!empty($_POST)){
 	if($insert->execute()){
 
 		$done = '<div class="done"><h4>Bienvenue dans la communauté Welcomed !!!</h4><a class="btn btn-lg btn-rounded btn-primary mod" data-url="login.php" >Se connecter</a></div>';
-		//$done = '<div class="done"><h4>Bienvenue dans la communauté Welcomed !!!</h4><button class="btn btn-lg btn-rounded btn-primary" title="login.php" id="subscribe">S\'inscrire</button>';
 		
 	}else{
 		var_dump($insert->errorInfo());
