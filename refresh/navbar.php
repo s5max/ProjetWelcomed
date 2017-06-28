@@ -1,8 +1,7 @@
 <?php 
 session_name('wmd'); session_start();
 
-$m = '/Home/ProjetWelcomedLast/modal/';
-/*$m = '/git/ProjetWelcomed/modal/';*/
+require('../include/route.php');
 
 ?>
 <li>

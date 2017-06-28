@@ -47,9 +47,6 @@ if(!empty($_POST)){
 
 					$done = '<h4 id="state" data-state="on">Vous êtes maintenant connecté à votre compte!</h4><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>';
 
-					//                    echo '<p>Vous êtes maintenant connecté à votre compte!</p><button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Reprendre là où j\'en étais</button>
-					//					<script>$(\'#no-log\').css(\'display\',\'none\');$(\'#contact\').removeAttr(\'disabled\');</script>';
-
 				}
 				else{
 
@@ -83,29 +80,34 @@ if(!empty($_POST)){
 	<!--Body-->
 	<div class="modal-body">
 
-		<form method="post" enctype="multipart/form-data">
-			
-			<p class="note">* Champs obligatoires</p>
-			
-			<?php if(isset($error)){echo implode($error,'<br>');} ?>
-			
-			<div class="md-form">
-				<input type="text" id="email" name="email" class="form-control">
-				<label for="email">Email *</label>
-			</div>
-
-			<div class="md-form">
-				<input type="password" id="password" name="password" class="form-control">
-				<label for="password">Mot de passe *</label>
-			</div>
-			
 		
-		</form>
 
 			<div class="text-center">
 				
-				<?php if(isset($done)){echo $done;}else{echo '<button class="btn btn-lg btn-rounded btn-primary" id="login">Connexion</button>
-				<div id="info"></div>';} ?>
+				<?php if(isset($done)){echo $done;}else{ ?>
+	
+					<form method="post" enctype="multipart/form-data">
+			
+						<p class="note">* Champs obligatoires</p>
+
+						<?php if(isset($error)){echo implode($error,'<br>');} ?>
+
+						<div class="md-form">
+							<input type="text" id="email" name="email" class="form-control">
+							<label for="email">Email *</label>
+						</div>
+
+						<div class="md-form">
+							<input type="password" id="password" name="password" class="form-control">
+							<label for="password">Mot de passe *</label>
+						</div>
+
+
+					</form>
+					
+				<button class="btn btn-lg btn-rounded btn-primary" id="login">Connexion</button>
+				<div id="info"></div>
+				<?php } ?>
 				
 			</div>
 			
@@ -168,7 +170,7 @@ if(!empty($_POST)){
 				
 				$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navrefresh').html(o);});
 				$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
-				$.ajax({type:'post',url:'/git/ProjetWelcomed/refresh/ad.php',data: {receiver_id	: receiver}}).done(function(o){$('#ad_action').html(o);console.log(o)});
+				$.ajax({type:'post',url:'/git/ProjetWelcomed/refresh/ad.php',data: {receiver_id	: receiver}}).done(function(o){$('#ad_action').html(o);});
 				
 			});
 

@@ -3,5 +3,5 @@
 $m = '/git/ProjetWelcomed/modal/';
 $r = '/git/ProjetWelcomed/';
 
-//$m = '/Home/ProjetWelcomedLast/modal/';
-//$r = '/Home/ProjetWelcomedLast/';
+//$m = '/Home/ProjetWelcomed/modal/';
+//$r = '/Home/ProjetWelcomed/';
