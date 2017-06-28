@@ -18,15 +18,7 @@ require('include/route.php');
 
         <title>WelcoMed</title>
 
-        <!-- Meta OG -->
-<!--
-        <meta property="og:title" content="Material Design Organic Cafe Landing Page">
-        <meta property="og:description" content="Perfect for projects that have something in common with cafe's and restaurants.">
-        <meta property="og:image" content="https://mdbootstrap.com/img/Live/MDB/13.03/cafe-fb.jpg">
-        <meta property="og:url" content="https://mdbootstrap.com/live/_MDB/templates/Landing-Page/organic-cafe-landing-page.html">
-        <meta property="og:site_name" content="mdbootstrap.com">
--->
-        <!-- /Meta OG -->
+        <!-- Ajouter des meta -->
 
         <!-- Police Roboto -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
@@ -35,7 +27,6 @@ require('include/route.php');
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
         <!-- Bootstrap core CSS -->
-        <!-- <link href="css/bootstrap337.css" rel="stylesheet"> -->
         <link href="css/bootstrap4.min.css" rel="stylesheet">
        
         <!-- Material Design Bootstrap -->
@@ -44,40 +35,6 @@ require('include/route.php');
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/modal-style.css" rel="stylesheet">
-        
-<!--
-        <style>
-			select{cursor: pointer}
-			.note{text-align: right;font-size: 0.8rem;color:#4fada7}
-			.error{text-align: center;color: #961b25}
-			.valid{top:-5px !important;color:#4fada7 !important}
-			.pad-right{padding-right: 20px}
-			.done{padding-top: 15px;text-align: center;}
-			.done>h4{color:#4fada7}
-			.formule{height: auto;margin-bottom:10px;padding:10px;border:1px solid #eceeef;border-radius:3px;overflow: hidden;}
-			.formule>a{float:right}
-			.lbl {
-				color: #757575;
-				font-size: 1rem;
-				margin-bottom: 0rem;
-				font-weight: bold;
-			}
-			
-			.option {
-				padding: 10px;
-			}
-			
-			.option > span {
-				padding: 8px;
-				border: solid #ccc 1px;
-				border-radius: 2px;
-				color: #ccc;
-				cursor: pointer;
-			}
-		</style>
--->
-    
-    	
 
     </head>
     
@@ -106,27 +63,11 @@ require('include/route.php');
                             <li class="nav-item">
                                 <a class="nav-link" href="#home">Accueil <span class="sr-only">(current)</span></a>
                             </li>
-<!--
-                            <li class="nav-item">
-                                <a class="nav-link" href="ad/index.php">Voir les offres</a>
-                            </li>
--->
-                           <?php if(isset($_SESSION['user'])){?>
-<!--
-                            <li class="nav-item">
-                                <a class="nav-link mod" data-offset="100" data-url="<?=$m?>ad1.php" data-toggle="modal" data-target="#modal4all">Publier une annonce</a>
-                            </li>
--->
-                            
-                            <?php } ?>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#footer" data-offset="100">Contactez-nous</a>
                             </li>
-<!--
-                            <li class="nav-item">
-                                <a class="nav-link" href="#products" data-offset="100">Publier une annonce</a>
-                            </li>
---> 
+
                             <li class="nav-item">
                                 <a class="nav-link wcomlink" href="#about">Welcomed Community</a>
                             </li>
