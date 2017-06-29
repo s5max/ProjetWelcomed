@@ -16,46 +16,71 @@ else{
 	$place = 0;
 	$post = array_map('trim',array_map('strip_tags',$_POST));
 	$error = [];
-	
+var_dump($post);	
 	if($_SESSION['post']['info']['type'] === '1' || $_SESSION['post']['info']['type'] === '2' || $_SESSION['post']['info']['type'] === '3'){
 	
 		if(!empty($post['office'])){ $place++;}
-		if(!empty($post['home'])){ $place++;}
+		if(!empty($post['homes'])){ $place++;}
 	
 		if(isset($post['office'])){
-			if($post['office'] !== 'on' && $post['office'] !== 'off')
+			if($post['office'] !== 'on' || $post['office'] !== 'off')
 				$error['office'] = '<p class="error">Paramètre invalide</p>';
+		}else{
+			$_SESSION['post']['detail']['office'] = $post['office'];
 		}
 
-		if(isset($post['home']) && $post['home'] !== 'on' && $post['home'] !== 'off'){
-			$error['home'] = '<p class="error">Paramètre invalide</p>';
+		if(isset($post['homes']) || $post['homes'] !== 'on' && $post['homes'] !== 'off'){
+			$error['homes'] = '<p class="error">Paramètre invalide</p>';
+		}else{
+			$_SESSION['post']['detail']['home'] = $post['homes'];
+		}
+		
+		if($post['homes'] == 'off' && $post['office'] == 'off'){
+			$error['homes'] = '<p class="error">Il faut préciser au moins un lieu</p>';
 		}
 		
 	}
 	
 	if($_SESSION['post']['info']['type'] === '1' || $_SESSION['post']['info']['type'] === '3'){
 	
+		if(!isset($_SESSION['post']['detail']['retrocession'])){
+			if(!is_numeric($post['retrocession'])){
 
-		if(!is_numeric($post['retrocession'])){
+				$error['retrocession'] = '<p class="error">L\'information doit être un chiffre</p>';
+			}else{
 
-			$error['retrocession'] = '<p class="error">L\'information doit être un chiffre</p>';
+			$_SESSION['post']['detail']['retrocession']=$post['retrocession'];
+			}
 		}
-		
 	}else if($_SESSION['post']['info']['type'] === '4'){
 		
-		
+		if(!isset($_SESSION['post']['detail']['company'])){
+		if(strlen($post['company']) < 5 || strlen($post['company']) > 40){
+
+			$error['company'] = '<p class="error">Le nombre de caractères du titre doit être compris entre 5 et 40</p>';
+		}else{
+
+			$_SESSION['post']['detail']['company']=$post['company'];
+		}
+	}
 	}
 	
-	
-	if(strlen($post['title']) < 5 || strlen($post['title']) > 40){
+	if(!isset($_SESSION['post']['detail']['title'])){
+		if(strlen($post['title']) < 5 || strlen($post['title']) > 40){
 
-		$error['title'] = '<p class="error">Le nombre de caractères du titre doit être compris entre 5 et 40</p>';
+			$error['title'] = '<p class="error">Le nombre de caractères du titre doit être compris entre 5 et 40</p>';
+		}else{
+
+			$_SESSION['post']['detail']['title']=$post['title'];
+		}
 	}
-
-	//description
+	
 	if(strlen($post['content']) < 5 || strlen($post['content']) > 200){
 
 		$error['content'] = '<p class="error">Souscrivez à l\'offre Premium pour écrire un texte plus grand</p>';
+	}else{
+		
+		$_SESSION['post']['detail']['content']=$post['content'];
 	}
 	
 	
@@ -110,9 +135,9 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 }
 	if(count($error) === 0){
 			
-		foreach($post as $k => $v){
-			$_SESSION['post']['detail'][$k] = $v;
-		}
+//		foreach($post as $k => $v){
+//			$_SESSION['post']['detail'][$k] = $v;
+//		}
 			
 			$insert = $bdd->prepare('INSERT INTO ad(option_id,user_id,profession_id,offer_id,city_id,detail)VALUES(:option_id,:user_id,:profession_id,:offer_id,:city_id,:detail)');
 
@@ -127,7 +152,8 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 
 			if($insert->execute()){
 
-				$done = '<p>Votre annonce a été enregistrée</p>';
+				$done = '<p>Votre annonce a été enregistrée. Vous pourrez recevoir des messages de personnes interessées dans la messagerie de votre espace personel welcomed</p>';
+				
 			}else{var_dump($insert->errorInfo());}	
 		
 	
@@ -156,32 +182,51 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 		<div class="md-form"><input type="text" name="title" id="title" class="form-control" 
 			<?php 	if(isset($empty)){
 
-				echo '><label for="title">Titre de l\'annonce</label>';
+				echo '><label for="title">Titre de l\'annonce *</label>';
 
 				}
 				else{
 
 					if(!isset($error['title'])){
-						echo'value="'.$post['title'].'" disabled><label for="title" class="active">Titre de l\'annonce</label>';
+						if(isset($post['title'])){
+							echo'value="'.$post['title'].'" disabled><label for="title" class="active">Titre de l\'annonce *</label>';
+						}else{
+							echo'value="'.$_SESSION['post']['detail']['title'].'" disabled><label for="title" class="active">Titre de l\'annonce *</label>';
+						}
 					}
 					else{
-						echo '><label for="title">Titre de l\'annonce</label>'. $error['title'];
+						echo '><label for="title">Titre de l\'annonce *</label>'. $error['title'];
 					}
 				} ?>
 	
 		</div>
+
 		
 		<?php	if($_SESSION['post']['info']['type'] === '1' || $_SESSION['post']['info']['type'] === '2' || $_SESSION['post']['info']['type'] === '3'){ ?>
 		
 			<p class="lbl">Lieu de consultation *</p>
 			<div class="option">
-				<span class="option2" data-id="office" data-info="on">Cabinet</span>
-				<span class="option2" data-id="home" data-info="on">Domicile(patient)</span>
-				<input type="hidden" name="office" id="office" value="off">
-				<input type="hidden" name="home" id="home" value="off">
+				<span data-id="office" 
+				<?php if(isset($post['office']) && $post['office'] == 'on'){ echo 'class="chosen"'; }
+					if(!empty($_SESSION['post']['detail']['office']) && $_SESSION['post']['detail']['office'] == 'on'){ echo 'class="chosen"'; }?>
+				>Cabinet</span>
+				
+				<span data-id="homes"<?php if(isset($post['homes']) && $post['homes'] == 'on'){ echo 'class="chosen"'; }
+					if(!empty($_SESSION['post']['detail']['homes']) && $_SESSION['post']['detail']['homes'] == 'on'){ echo 'class="chosen"'; }?>
+				>Domicile(patient)</span>
+					
+				<input type="hidden" name="office" id="office" <?php if(isset($post['office']) && $post['office'] == 'on'){ echo 'value="on"'; }
+					if(!empty($_SESSION['post']['detail']['office']) && $_SESSION['post']['detail']['office'] == 'on'){ echo 'value="on"'; }else{ echo 'value="off"';}?>
+				>
+				
+				<input type="hidden" name="homes" id="homes" <?php if(isset($post['homes']) && $post['homes'] == 'on'){ echo 'value="on"'; }
+					if(!empty($_SESSION['post']['detail']['homes']) && $_SESSION['post']['detail']['homes'] == 'on'){ echo 'value="on"'; }else{ echo 'value="off"';}?>
+				>
+				
+				
 			</div>
 
-			<?php if(isset($place) && $place === 0){ echo '<p class="error">Mais où, alors?</p>'; } ?>
+			<?php if(isset($place) && $place === 0 || isset($error['homes'])){ echo '<p class="error">Mais où, alors?</p>'; } ?>
 		
 		<?php } ?>
 		
@@ -198,7 +243,11 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 				else{
 
 					if(!isset($error['retrocession'])){
-						echo'value="'.$post['retrocession'].'" disabled><label for="retrocession" class="active">Rétrocession *</label>';
+						if(isset($post['retrocession'])){
+							echo'value="'.$post['retrocession'].'" disabled><label for="retrocession" class="active">Rétrocession *</label>';
+						}else{
+							echo'value="'.$_SESSION['post']['detail']['retrocession'].'" disabled><label for="retrocession" class="active">Rétrocession *</label>';
+						}
 					}
 					else{
 						echo '><label for="retrocession">Rétrocession *</label>'. $error['retrocession'];
@@ -242,7 +291,11 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 				else{
 
 					if(!isset($error['company'])){
-						echo'value="'.$post['company'].'" disabled><label for="company" class="active">Entreprise *</label>';
+						if(isset($post['company'])){
+							echo'value="'.$post['company'].'" disabled><label for="company" class="active">Entreprise *</label>';
+						}else{
+							echo'value="'.$_SESSION['post']['detail']['company'].'" disabled><label for="company" class="active">Entreprise *</label>';
+						}
 					}
 					else{
 						echo '><label for="company">Entreprise *</label>'. $error['company'];
@@ -254,13 +307,13 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 
 		<div class="md-form">
 			<textarea name="content" id="content" cols="30" class="rounded"><?php if(isset($empty)){echo '</textarea>';}else{if(!isset($error['content'])){echo $post['content'];}} ?></textarea>
-			<label for="content">Contenu de l'annonce</label>
+			<label for="content" class="active">Contenu de l'annonce</label>
 			<?php if(isset($error['content'])){echo $error['content'];} ?>
 		</div>
 <!--	Vous pouvez booster votre annonce avec des photos en souscrivant à l'une de nos offres (a afficher pour pour option de base)	-->
 		<div class="btn btn-rounded btn-primary">
 		<p class="lbl">Vous pouvez ajouter 6 images</p> 
-		<?php if($_SESSION['post']['option'] === '1'){ echo '<a class="mod lien" data-url="ad2.php" data-info="1">en souscrivant à l\'une de nos offres</a>';} ?>
+		<?php if($_SESSION['post']['option'] === '1'){ echo '<a class="mod lien destroy_ad3" data-url="ad2.php" data-info="1">en souscrivant à l\'une de nos offres</a>';} ?>
 		
 			<input type="hidden" name="MAX_FILE_SIZE" value="2097152"> 
             <input type="file" name="picture"<?php if($_SESSION['post']['option'] === '1'){ echo 'disabled';} ?>>
@@ -286,26 +339,34 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 
 <script>
 	
+	var b = [];
+	
+	function notEmpty(a){
+		b = a !== null;
+		return b;
+	}
+	
 	var reference = {};
-	$('.option>span.option2').click(function(e){
+	$('.option>span').click(function(e){
         
-        $(this).css('border','solid #757575 2px');
-		$(this).css('color','#757575');
+		idSpan = $(this).data('id');
+		att = $(this).attr('class');
 		
-        
-        var key     = $(this).data('id');
-        var value   = $(this).data('info');
-		
-		if(key === 'office'){
-			if(value === 'off'){$('#office').val('on');}else{$('#office').val('off');}
+		if(idSpan == 'office'){
+			span = $('#office');
+		}else{
+			span = $('#homes');
 		}
 		
-		if(key === 'home'){
-			if(value === 'off'){$('#office').val('on');}else{$('#office').val('off');}
+		if(att === undefined){
+			$(this).attr('class','chosen');
+			span.val('on');
+		}else{
+			$(this).removeAttr('class');
+			span.val('off');
 		}
 		
-		reference[key] = value;
-		
+		//console.log($().val());
 	});
 	
 	$('.mod').on('click', function(e){
@@ -332,6 +393,17 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 	$('#ad3').on('submit', function(e) {
 
 		e.preventDefault();
+		
+		<?php if($_SESSION['post']['info']['type'] === '4'){ echo'
+														   
+		var min = [$(\'#contract\').val(),$(\'#daytime\').val() ].every(notEmpty);
+		
+		if(min === false){
+		
+			$(\'#info\').html(\'<p class="error">Vous devez remplir les champs obligatoires(*)</p>\');
+		}
+		else{';
+		} ?>
 			
 			var $form = $(this);
         	var formdata = (window.FormData) ? new FormData($form[0]) : null;
@@ -351,13 +423,28 @@ $mimeTypeAvailable = ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/png', 'im
 				$('#ajax').html(o);
 
 			});
-
+		
+		<?php if($_SESSION['post']['info']['type'] === '4'){ echo'}';} ?>
 	});
+	
+	
 	
 	
 	$('.destroy').on('click', function(e){
 		
 		url = 'ajax/destroy_post.php';
+		
+		$.ajax({
+			type	: 'post',
+			url		: url
+		});
+		
+	});
+	
+	
+	$('.destroy_ad3').on('click', function(e){
+		
+		url = 'ajax/destroy_post_ad3.php';
 		
 		$.ajax({
 			type	: 'post',

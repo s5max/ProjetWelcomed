@@ -15,7 +15,7 @@ select{cursor: pointer}
 }
 
 .option {
-	padding: 10px;
+	padding: 20px;
 }
 
 .option > span {
@@ -25,3 +25,5 @@ select{cursor: pointer}
 	color: #ccc;
 	cursor: pointer;
 }
+
+.chosen{border: solid #757575 2px !important;color: #757575 !important}

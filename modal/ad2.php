@@ -18,7 +18,7 @@ session_name('wmd');session_start();
 	
 	<div class="formule">
 		<h5>Formule Premium</h5>
-		<p>En ligne 90 jours, classée en tête de liste (... jours après l'activation). En première page durant 30 jours.Le libellé est limité à 1500 caractères. Un diaporama de 6 photos accompagnent l'annonce</p>
+		<p>En ligne 90 jours, classée en tête de liste. En première page durant 30 jours.Le libellé est limité à 1500 caractères. Un diaporama de 6 photos accompagnent l'annonce</p>
 		<a class="btn btn-lg btn-rounded btn-primary mod" data-url="" data-info="3" disabled>Acheter pour 90€ *</a>
 		
 	</div>

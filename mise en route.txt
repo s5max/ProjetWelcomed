@@ -1,2 +1,4 @@
 Déclarer les variables $r et $m sur les fichiers du dossier include :
 xheader.php		route.php
+
+Vérifier que dans le javascript que les chemins son adéquats
