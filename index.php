@@ -129,6 +129,7 @@ require('include/route.php');
 										<a href="<?= $r ?>account.php" target="_self" class="btn wmregister" data-offset="100">Mon Compte</a>                                   	
                        
                                     <?php }?>
+                                    <h1 class="text-center wcbutton">Bientôt</h1>
                                 </div>
                             </div>
                         </div>
@@ -448,6 +449,7 @@ require('include/route.php');
                         <!--/Column column-->
 
                     </div>
+                        <h1 class="text-center wcbutton">Bientôt</h1>
                     <!--/First row-->
 
                 </section>

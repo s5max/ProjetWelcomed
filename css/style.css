@@ -101,7 +101,32 @@ select {
 .normaltextarea {
   height: inherit !important;
 }
-
+.wcmore {
+  margin-top: 60px;
+  color: #ff9100;
+  font-weight: bolder;
+  text-shadow: 1px 1px 8px #404040;
+}
+.wcmore:hover {
+  color: #ff5401;
+}
+.wcmore>a {
+  color: inherit;
+}
+.wcbutton {
+  margin : 0 auto;
+  margin-top: 40px;
+  max-width: 50%;
+  color: #fff;
+  background-color: #ff9100;
+  border-radius: 15px;
+  cursor: hand;
+}
+.wcbutton:hover {
+  color: #fff;
+  background-color: #ff5401;
+  border-radius: 15px;
+}
 /*----------------------------------
     FORMS BOOTSTRAP 3.3.7
 ------------------------------------*/
