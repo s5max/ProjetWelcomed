@@ -46,7 +46,7 @@
 
 
             if($contactRequest->execute()){
-                $success = 'Votre message a été envoyé !';
+                $success = true;
                 $display = false;
             }
             else {
@@ -103,13 +103,13 @@
                                     <div class="col-lg-6 normalform">
                                         <p>Pour tout renseignement ou demande de contact, veuillez remplir ce formulaire. Nous vous répondrons dans les plus brefs délais.</p>
 
-                                        <?php if(isset($success)): // La variable $success n'existe que lorsque tout est ok ?>
-                                        <div class="col-sm-6"><p style="color:green"><?php echo $success; ?></p></div>
+                                        <?php if(isset($success)): ?>
+                                        <?php echo '<div class="alert alert-success">Merci, votre message a été envoyé.</div>'; ?>
 
                                         <?php endif; ?> 
 
 
-                                        <?php if(isset($errorsText)): // La variable $errorsText n'existe que lorsqu'il y a des erreurs ?>
+                                        <?php if(isset($errorsText)): ?>
                                         <p style="color:red"><?php echo $errorsText; ?></p>
                                         <?php endif; ?>
 
@@ -123,10 +123,10 @@
                                             <form method="post" class="form-horizonthal" enctype="multipart/form-data">
 
                                                 <div class="form-group">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-sm-12">
                                                         <input name="lastname" required class="form-control" type="text" placeholder="Saisissez votre Nom">
                                                     </div>
-                                                    <div class="col-lg-6">
+                                                    <div class="col-sm-12">
                                                         <input name="firstname" required class="form-control" type="text" placeholder="Saisissez votre Prénom">
                                                     </div>
                                                 </div>
@@ -149,7 +149,7 @@
                                                 <!-- Message -->
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <textarea name="message" rows="5" placeholder="Saisissez votre message" class="form-control"></textarea>           
+                                                        <textarea name="message" rows="5" placeholder="Saisissez votre message" class="form-control normaltextarea"></textarea>           
                                                     </div>
                                                 </div>
                                                     

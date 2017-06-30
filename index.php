@@ -44,7 +44,7 @@ require('include/route.php');
         <header>
 
             <!--Navbar-->
-            <nav class="navbar fixed-top navbar-toggleable-md navbar-dark scrolling-navbar">
+            <nav class="navbar fixed-top navbar-toggleable-md navbar-dark scrolling-navbar" id="normalnavbar">
 
                 <div class="container">
 
@@ -61,13 +61,15 @@ require('include/route.php');
                         <!--Links-->
                         <ul class="navbar-nav mr-auto smooth-scroll">
                             <li class="nav-item">
-                                <a class="nav-link" href="#home">Accueil <span class="sr-only">(current)</span></a>
+                                <a class="nav-link normallink" href="#home">Accueil <span class="sr-only">(current)</span></a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#footer" data-offset="100">Contactez-nous</a>
+                                <a class="nav-link normallink" href="#footer" data-offset="100">Contactez-nous</a>
                             </li>
-
+                            <li class="nav-item">
+                                <?php if(isset($_SESSION['user'])){echo '<a class="nav-link normallink" href="account.php">Mon Compte</a>';}?>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link wcomlink" href="#about">Welcomed Community</a>
                             </li>

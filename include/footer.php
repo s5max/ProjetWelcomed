@@ -41,7 +41,7 @@
                         <div class="footer-socials">
 
                             <!--Facebook-->
-                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-facebook"></i></a> Facebook.com/Welcomed
+                            <a type="button" class="btn-floating btn-small btn-primary"><i class="fa fa-facebook"></i></a> facebook.com/welcomedsolutions/
 
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 <?php
 
-$m = '/git/ProjetWelcomed/modal/';
-$r = '/git/ProjetWelcomed/';
+// $m = '/git/ProjetWelcomed/modal/';
+// $r = '/git/ProjetWelcomed/';
 
-//$m = '/Home/ProjetWelcomed/modal/';
-//$r = '/Home/ProjetWelcomed/';
+$m = '/Home/ProjetWelcomed/modal/';
+$r = '/Home/ProjetWelcomed/';
