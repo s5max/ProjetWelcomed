@@ -42,5 +42,6 @@ session_destroy();
 	
 	$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navbarNav').html(o);});
 	$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
+	$.ajax({type:'post',url:'refresh/welcomedcommunity.php'}).done(function(o){$('#welcomedclink').html(o);});
 
 </script>	

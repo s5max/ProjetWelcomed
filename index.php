@@ -19,7 +19,8 @@ require('include/route.php');
         <title>WelcoMed</title>
 
         <!-- Ajouter des meta -->
-
+        <meta name="description" content="Annonces entre professionels de santé">
+        <meta name="keywords" content="welcomed, welcomedsolutions, remplacement, assistanat, collaboration, rétrocession, cabinet, cession, patientèle, médecin, kiné, kinésithérapeute, dentiste, podologue, osthéopathe, infirmier, infirmière, orthophoniste, docteur, IDE, martinique, découvrir, travailler, j'arrive">
         <!-- Police Roboto -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
 
@@ -62,9 +63,6 @@ require('include/route.php');
                         <ul class="navbar-nav mr-auto smooth-scroll">
                             <li class="nav-item">
                                 <a class="nav-link normallink" href="#home">Accueil <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <?php if(isset($_SESSION['user'])){echo '<a class="nav-link normallink" href="account.php">Mon Compte</a>';}?>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link normallink" href="#footer" data-offset="100">Contactez-nous</a>
@@ -455,7 +453,18 @@ require('include/route.php');
                         <!--/Column column-->
 
                     </div>
-                        <h1 class="text-center wcbutton">Bientôt</h1>
+                    <div class="row col-xs-12 pt-3 wow fadeIn" data-wow-delay="0.2s" id="welcomedclink">
+
+                        <?php if(!isset($_SESSION['user'])){?>
+                            <a class="btn wmlogin mod buttonwc" data-offset="100" data-url="<?=$m?>login.php" data-toggle="modal" data-target="#modal4all">Connectez-vous pour accèder à nos offres</a>
+                            <?php }else{?>
+                            
+                            <a class="btn wmlogin buttonwc" href="http://welcomed-solutions.strikingly.com/">Accédez à nos offres</a>
+
+
+               
+                        <?php }?>
+                    </div>
                     <!--/First row-->
 
                 <!--/Section: About-->

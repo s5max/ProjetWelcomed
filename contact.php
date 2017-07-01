@@ -30,7 +30,7 @@
             $errors[] = 'Quel est le sujet de votre demande ?';
         }
 
-        if(strlen($contact['message']) < 20 || strlen($contact['message']) > 150){
+        if(strlen($contact['message']) < 20 || strlen($contact['message']) > 200){
             $errors[] = 'Veuillez saisir un message compris entre 20 et 150 caractères !';
         }
 
@@ -150,7 +150,7 @@
                                                 <!-- Message -->
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <textarea name="message" rows="5" placeholder="Saisissez votre message" class="form-control normaltextarea"></textarea>           
+                                                        <textarea name="message" rows="5" placeholder="Saisissez votre message (20 caractères minimum)" class="form-control normaltextarea"></textarea>           
                                                     </div>
                                                 </div>
                                                     

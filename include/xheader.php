@@ -111,7 +111,7 @@ $c = $r.'contact.php';
                                 <a class="nav-link" href="contact.php" data-offset="100">Contactez-nous</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link wcomlink" href="./#about" data-target="#modal-contact">Welcomed Community</a>
+                                <a class="nav-link wcomlink" href="http://welcomed-solutions.strikingly.com/" data-target="#modal-contact">Welcomed Community</a>
                             </li>
                         </ul>
 

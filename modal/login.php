@@ -171,6 +171,7 @@ if(!empty($_POST)){
 				$.ajax({type:'post',url:'refresh/navbar.php'}).done(function(o){$('#navbarNav').html(o);});
 				$.ajax({type:'post',url:'refresh/home.php'}).done(function(o){$('#home').html(o);});
 				$.ajax({type:'post',url:'/git/ProjetWelcomed/refresh/ad.php',data: {receiver_id	: receiver}}).done(function(o){$('#ad_action').html(o);});
+				$.ajax({type:'post',url:'refresh/welcomedcommunity.php',data: {receiver_id	: receiver}}).done(function(o){$('#welcomedclink').html(o);});
 				
 			});
 
