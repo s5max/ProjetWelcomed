@@ -2,6 +2,8 @@
 
 session_name('wmd'); session_start();
 
+require('../include/connect.php');
+require('../include/home_edit.php');
 require('../include/route.php');
 
 ?>
@@ -11,7 +13,7 @@ require('../include/route.php');
 		<div class="container">
 			<div class="row smooth-scroll">
 				<div class="col-md-12 text-center pt-3 wow fadeIn" data-wow-delay="0.2s">
-					<h1 class="white-text brand-name font-up font-bold hwelcomed">Welcomed</h1>
+					<h1 class="white-text brand-name font-up font-bold hwelcomed"><?php echo $home_title['text_content']; ?></h1>
 					<div class="row">
 						<div class="col-md-12 div-color">
 							<div class="divider-new div-blue">
@@ -19,7 +21,7 @@ require('../include/route.php');
 							</div>
 						</div>
 					</div>
-					<h2 class="font-up white-text mb-2 hwelcomed">Une expérience libérale sous le Soleil de Martinique</h2>
+					<h2 class="font-up white-text mb-2 hwelcomed"><?php echo $home_slogan['text_content']; ?></h2>
 
 					<?php if(!isset($_SESSION['user'])){?>
                         <a class="btn wmregister mod" data-offset="100" data-url="<?=$m?>subscribe.php" data-toggle="modal" data-target="#modal4all">S'inscrire</a>
