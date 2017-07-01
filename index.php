@@ -63,12 +63,11 @@ require('include/route.php');
                             <li class="nav-item">
                                 <a class="nav-link normallink" href="#home">Accueil <span class="sr-only">(current)</span></a>
                             </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link normallink" href="#footer" data-offset="100">Contactez-nous</a>
-                            </li>
                             <li class="nav-item">
                                 <?php if(isset($_SESSION['user'])){echo '<a class="nav-link normallink" href="account.php">Mon Compte</a>';}?>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link normallink" href="#footer" data-offset="100">Contactez-nous</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link wcomlink" href="#about">Welcomed Community</a>
@@ -129,7 +128,12 @@ require('include/route.php');
 										<a href="<?= $r ?>account.php" target="_self" class="btn wmregister" data-offset="100">Mon Compte</a>                                   	
                        
                                     <?php }?>
-                                    <h1 class="text-center wcbutton">Bientôt</h1>
+                                    <div class="wcmore smooth-scroll">
+                                        <a href="#products" data-offset="100">
+                                            <h1 class="font-up text-center">En savoir plus</h1>
+                                            <h1><i class="fa fa-arrow-circle-down fa-5" aria-hidden="true"></i></h1>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
