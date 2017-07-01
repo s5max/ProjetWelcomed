@@ -2,6 +2,7 @@
 
     require('include/connect.php');
     require('include/xheader.php');
+    require('include/home_edit.php');
     
     $contact =[]; // Contiendra les données du formulaire nettoyées
     $errors =[]; // Contiendra les éventuelles erreurs
@@ -175,7 +176,20 @@
                     </section>
                     <!--/Section: About-->
 
-                <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
+                    <section class="section">
+                        <?php if(!empty($onePub['partner']) || !empty($twoPub['partner'])):?>
+                            <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
+                            <div class="row text-center">
+                                <?php if(!empty($onePub['partner']) && empty($twoPub['partner'])):?>
+                                    <?php echo '<div class="col-xs-12"><a href="'.$onePub['partner_link'].'"><img src="img/'.$onePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$onePub['description'].'</p></a></div>'; ?>
+                                    <?php elseif(empty($onePub['partner']) && !empty($twoPub['partner'])) :?>
+                                        <?php echo '<div class="col-xs-12"><a href="'.$twoPub['partner_link'].'"><img src="img/'.$twoPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$twoPub['description'].'</p></a></div>'; ?>
+                                        <?php elseif(!empty($onePub['partner']) && !empty($twoPub['partner'])) :?>
+                                            <?php echo '<div class="col-xs-6"><a href="'.$onePub['partner_link'].'"><img src="img/'.$onePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$onePub['description'].'</p></a></div><div class="col-xs-6"><a href="'.$twoPub['partner_link'].'"><img src="img/'.$twoPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$twoPub['description'].'</p></a></div>'; ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                    </section>
 
                 <!--Section: Testimonials v.3-->
 

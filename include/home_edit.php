@@ -24,20 +24,24 @@
     /*INSERTION DU TEXTE DEPUIS LA BDD*/
     $hTitle = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 1');
     $hSlogan = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 2');
-    $hTitleTwo = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 3');
-    $hTitleTwoDesc = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 4');
-    $hParaOne = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 5');
-    $hParaTwo = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 6');
-    $hParaThree = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 7');
-    $hRespOne = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 8');
-    $hRespOneT = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 9');
-    $hRespTwo = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 10');
-    $hRespTwoT = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 11');
-    $hRespThree = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 12');
-    $hRespThreeT = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 13');
+    $hTitleOne = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 3');
+    $hTitleOneDesc = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 4');
+    $hTitleTwo = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 5');
+    $hTitleTwoDesc = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 6');
+    $hParaOne = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 7');
+    $hParaTwo = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 8');
+    $hParaThree = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 9');
+    $hRespOne = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 10');
+    $hRespOneT = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 11');
+    $hRespTwo = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 12');
+    $hRespTwoT = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 13');
+    $hRespThree = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 14');
+    $hRespThreeT = $bdd->prepare('SELECT * FROM home_text WHERE text_id = 15');
 
     if($hTitle->execute()){$home_title = $hTitle->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($hSlogan->execute()){$home_slogan = $hSlogan->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($hTitleOne->execute()){$home_titleOne = $hTitleOne->fetch(PDO::FETCH_ASSOC);}else {die;}
+    if($hTitleOneDesc->execute()){$home_titleOneD = $hTitleOneDesc->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($hTitleTwo->execute()){$home_titleTwo = $hTitleTwo->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($hTitleTwoDesc->execute()){$home_titleTwoD = $hTitleTwoDesc->fetch(PDO::FETCH_ASSOC);}else {die;}
     if($hParaOne->execute()){$home_paraOne = $hParaOne->fetch(PDO::FETCH_ASSOC);}else {die;}

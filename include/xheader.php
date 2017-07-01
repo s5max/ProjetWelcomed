@@ -105,10 +105,10 @@ $c = $r.'contact.php';
                                 <?php if(isset($_SESSION['user'])){ echo '<a class="nav-link" href="search.php">Voir les offres</a>';}?>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.php" data-offset="100">Contactez-nous</a>
+                                <?php if(isset($_SESSION['user'])){echo '<a class="nav-link" href="account.php">Mon Compte</a>';}?>
                             </li>
                             <li class="nav-item">
-                                <?php if(isset($_SESSION['user'])){echo '<a class="nav-link" href="account.php">Mon Compte</a>';}?>
+                                <a class="nav-link" href="contact.php" data-offset="100">Contactez-nous</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link wcomlink" href="./#about" data-target="#modal-contact">Welcomed Community</a>

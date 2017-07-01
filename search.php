@@ -2,6 +2,7 @@
 
 require('include/connect.php');
 require('include/xheader.php');
+require('include/home_edit.php');
 
 $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
 
@@ -167,11 +168,11 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
             <!--/First container-->
           
             <!--Second container-->
-            <div class="container-full whitesection">
+            <div class="container-full whitesection" style="overflow: hidden;">
                 <div class="container">
 
                     <!--Section: About-->
-                    <section class="section about mb-4" id="about"> 
+                    <section class="section about" id="about"> 
 
                         <div class="row">
                             <h1 class="title normaltitle">Résultat de votre recherche</h1>
@@ -186,10 +187,21 @@ $select = $bdd->prepare('SELECT profession_id,offer_id,city_id FROM ad');
                                 </div>
 						</div>
 
+	                	<?php if(!empty($onePub['partner']) || !empty($twoPub['partner'])):?>
+	                        <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
+	                        <div class="row text-center">
+	                            <?php if(!empty($onePub['partner']) && empty($twoPub['partner'])):?>
+	                                <?php echo '<div class="col-xs-12"><a href="'.$onePub['partner_link'].'"><img src="img/'.$onePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$onePub['description'].'</p></a></div>'; ?>
+	                                <?php elseif(empty($onePub['partner']) && !empty($twoPub['partner'])) :?>
+	                                    <?php echo '<div class="col-xs-12"><a href="'.$twoPub['partner_link'].'"><img src="img/'.$twoPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$twoPub['description'].'</p></a></div>'; ?>
+	                                    <?php elseif(!empty($onePub['partner']) && !empty($twoPub['partner'])) :?>
+	                                        <?php echo '<div class="col-xs-6"><a href="'.$onePub['partner_link'].'"><img src="img/'.$onePub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$onePub['description'].'</p></a></div><div class="col-xs-6"><a href="'.$twoPub['partner_link'].'"><img src="img/'.$twoPub['partner_picture'].'" class="img-responsive partnerimg"><p>'.$twoPub['description'].'</p></a></div>'; ?>
+	                            <?php endif; ?>
+	                        </div>
+	                    <?php endif; ?>
                     </section>
                     <!--/Section: About-->
 
-                <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
 
                 <!--Section: Testimonials v.3-->
 				</div>

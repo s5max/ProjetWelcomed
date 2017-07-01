@@ -129,7 +129,7 @@ require('include/route.php');
                        
                                     <?php }?>
                                     <div class="wcmore smooth-scroll">
-                                        <a href="#products" data-offset="100">
+                                        <a href="#features" data-offset="100">
                                             <h1 class="font-up text-center">En savoir plus</h1>
                                             <h1><i class="fa fa-arrow-circle-down fa-5" aria-hidden="true"></i></h1>
                                         </a>
@@ -174,13 +174,15 @@ require('include/route.php');
             <div class="container">
 
                 <!--Section: Products-->
-                <section class="section" id="products">
+                <section class="section mt-4 feature-box" id="features">
 
                     <!--Secion heading-->
-                    <!-- <h1 class="text-center font-up font-bold mt-5 wow fadeIn" data-wow-delay="0.2s">&nbsp; </h1> -->
+                    <h1 class="text-center font-up font-bold mt-1 wow fadeIn" data-wow-delay="0.2s"><?php echo $home_titleOne['text_content']; ?></h1>
+
+                    <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
 
                     <!--Section description-->
-                    <p class="text-center font-up font-bold mb-4 wow fadeIn" data-wow-delay="0.2s">&nbsp; </p>
+                    <p class="text-center font-up font-bold mb-2 wow fadeIn" data-wow-delay="0.2s"><?php echo $home_titleOneD['text_content']; ?></p>
 
                     <!--First row-->
                     <div class="row text-center">
@@ -456,7 +458,6 @@ require('include/route.php');
                         <h1 class="text-center wcbutton">Bientôt</h1>
                     <!--/First row-->
 
-                </section>
                 <!--/Section: About-->
                 <?php if(!empty($threePub['partner']) || !empty($fourPub['partner'])):?>
                         <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
@@ -470,6 +471,7 @@ require('include/route.php');
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
+                </section>
 
                 <hr class="between-sections wow fadeIn" data-wow-delay="0.4s">
 

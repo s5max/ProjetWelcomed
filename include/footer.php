@@ -11,7 +11,7 @@
                     <div class="col-xl-4 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
 
                         <!--About-->
-                        <h5 class="title mb-1 normaltitlefoot"><strong>A PROPOS DE NOUS</strong></h5>
+                        <h5 class="mb-1 normaltitlefoot"><strong>A PROPOS DE NOUS</strong></h5>
 
                         <p><a href="contact.php">Contact</a></p>
 
@@ -24,7 +24,7 @@
                     <hr class="w-100 hidden-lg-up">
 
                     <!--Second column-->
-                    <div class="col-xl-4 offset-xl-1 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="col-xl-4 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
                         <!--Info-->
                         <p><i class="fa fa-home mr-3"></i> Route de l'entraide</p>
                         <p><i class="fa fa-home mr-3"></i> 97200 Fort-de-France</p>

@@ -109,6 +109,7 @@ select {
 }
 .wcmore a:hover {
   color: #ff5401;
+  text-shadow: 0px 0px 4px #fff !important;
 }
 .wcmore>a {
   color: inherit;

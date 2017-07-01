@@ -35,10 +35,10 @@ require('../include/route.php');
 
 							<a href="<?= $r ?>search.php" target="_self" class="btn wmregister">Voir les offres</a>                                   	
 							<a href="<?= $r ?>account.php" target="_self" class="btn wmregister">Mon Compte</a>   
-                  			
+                  		
                         <?php }?>
                         <div class="wcmore smooth-scroll">
-                       		<a href="#products" data-offset="100">
+                       		<a href="#features" data-offset="">
 	                        	<h1 class="font-up text-center">En savoir plus</h1>
 	                        	<h1><i class="fa fa-arrow-circle-down fa-5" aria-hidden="true"></i></h1>
 	                        </a>
