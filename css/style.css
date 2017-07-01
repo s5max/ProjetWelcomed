@@ -107,7 +107,7 @@ select {
   font-weight: bolder;
   text-shadow: 1px 1px 8px #404040;
 }
-.wcmore:hover {
+.wcmore a:hover {
   color: #ff5401;
 }
 .wcmore>a {

@@ -24,7 +24,7 @@
                     <hr class="w-100 hidden-lg-up">
 
                     <!--Second column-->
-                    <div class="col-xl-3 offset-xl-1 col-lg-4 col-md-6 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="col-xl-4 offset-xl-1 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
                         <!--Info-->
                         <p><i class="fa fa-home mr-3"></i> Route de l'entraide</p>
                         <p><i class="fa fa-home mr-3"></i> 97200 Fort-de-France</p>
@@ -33,7 +33,7 @@
                     </div>
                     <!--/Second column-->
 
-                    <hr class="w-100 hidden-md-up">
+                    <hr class="w-100 hidden-lg-up">
 
                     <!--First column-->
                     <div class="col-xl-4 col-lg-4 pt-1 pb-1 wow fadeIn" data-wow-delay="0.3s">
