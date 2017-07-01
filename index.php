@@ -421,7 +421,7 @@ require('include/route.php');
             <div class="container">
 
                 <!--Section: About-->
-                <section class="section about mb-4"> 
+                <section class="section about"> 
 
                     <!--Secion heading-->
                     <h1 class="text-center font-up font-bold mt-1 wow fadeIn" data-wow-delay="0.2s"><?php echo $home_titleTwoD['text_content']; ?></h1>
